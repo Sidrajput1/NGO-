@@ -1,0 +1,40 @@
+.app {
+    text-align: center;
+    padding: 40px;
+    width: 100%;
+   
+    margin-top: 0rem;
+  }
+  .plan-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
+    
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.5s;
+  }
+  .card-back {
+    color: #333;
+    background-color: #fff;
+    
+  }
+
+  
+  .car-card img {
+    max-width: 100%;
+    max-height: 100%;
+  }
