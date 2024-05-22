@@ -9,6 +9,9 @@ import gallery5 from '../../assets/pics/gallery/gallery5.jpg'
 import gallery6 from '../../assets/pics/gallery/gallery6.jpg'
 import gallery7 from '../../assets/pics/gallery/gallery7.jpg'
 import gallery8 from '../../assets/pics/gallery/gallery8.jpg'
+import homepic from '../../assets/pics/homepic.jpg'
+import vision2 from '../../assets/pics/vision2.jpg'
+import group from '../../assets/pics/gallery/group.png'
 
 
 
@@ -58,14 +61,14 @@ const Gallery = () => {
                             </div>
                             <div className="overflow-hidden">
                                 <img
-                                    src={gallery1}
+                                    src={vision2}
                                     alt="Gallery Image 2"
                                     className="w-full h-80  transform transition-transform hover:scale-105"
                                 />
                             </div>
                             <div className="overflow-hidden">
                                 <img
-                                    src={gallery4}
+                                    src={homepic}
                                     alt="Gallery Image 4"
                                     className="w-full h-80  transform transition-transform hover:scale-105"
                                 />
@@ -86,7 +89,7 @@ const Gallery = () => {
                             </div>
                             <div className="overflow-hidden">
                                 <img
-                                    src={gallery5}
+                                    src={group}
                                     alt="Gallery Image 5"
                                     className="w-full h-80  transform transition-transform hover:scale-105"
                                 />

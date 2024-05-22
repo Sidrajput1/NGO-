@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import QRCode from 'qrcode.react'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Payment() {
+
+        const navigate = useNavigate();
 
         const [formData,setFormData] = useState({
             name:'',
@@ -66,11 +69,11 @@ function Payment() {
             {/* Add more payment methods as needed */}
           </select>
         </div>
-                        <button type="button" onClick={generatePaymentLink}
+                        <button type="button" onClick={()=>navigate('/checkout')}
                             className="px-6 py-2 w-full bg-orange-400 text-sm text-white hover:bg-[#444] mx-auto block">Submit</button>
                     </form>
                     {paymentInfo && <QRCode value={paymentInfo}/>}
-                    <a href="#payments">Clickhere</a>
+                    
     </div>
   )
 }

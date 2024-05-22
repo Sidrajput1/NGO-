@@ -12,7 +12,7 @@
     justify-content: center;
     flex-direction: row;
     gap: 40px;
-    
+    transition: ease-in-out .2s;
     flex-wrap: wrap;
   }
   .card {

@@ -7,8 +7,8 @@ function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
 
                     <div className="lg:col-span-2">
-                        <h2 className='text-4xl text-orange-500 font-serif text-justify font-bold pl-0 '>PRABISVG SAMAJ KALYAN</h2>
-                        <p className="text-gray-300 text-lg">At the PRABISVG SAMAJ KALYAN SHIKSHAN SANSTHA we are trying to make a
+                        <h2 className='text-3xl text-orange-500 font-serif text-wrap font-bold pl-0 '>PRABISVG SAMAJ KALYAN <span className='text-sky-300'>EVUM SHIKSHAN SANSTHA</span></h2>
+                        <p className="text-gray-300 text-lg"> we are trying to make a
                             difference wherever we can. However, we need your
                             support to further our cause.
                             Become our partner with a small extension of
@@ -79,7 +79,7 @@ function Footer() {
                 <h3 className='text-3xl font-semibold'>Support Us</h3>
                 <h4>Collbrate with Us</h4>
                 <p className='text-gray-300 text-sm'>© 2023<a href='https://readymadeui.com/' target='_blank'
-                    className="hover:underline mx-1"></a>Copyright © 2023 PRABISCG SAMAJ KALYAN SHIKSHAN SANSTHA. All Rights Reserved</p>
+                    className="hover:underline mx-1"></a>Copyright © 2023 PRABISVG SAMAJ KALYAN EVUM SHIKSHAN SANSTHAN. All Rights Reserved</p>
             </div>
         </footer>
     )

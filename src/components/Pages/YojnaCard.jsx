@@ -6,7 +6,7 @@ import vaasta from '../../assets/pics/vaasta.jpeg'
 
 const plans = [
     {
-        imageUrl: "https://t4.ftcdn.net/jpg/05/27/28/25/360_F_527282561_CuOb6IPff5rEcUz3zlPDSKeeV0fW48cX.jpg",
+        imageUrl: "https://res.cloudinary.com/devex/image/fetch/c_scale,f_auto,q_auto,w_720/https://lh6.googleusercontent.com/tICdn73LGjdFxUc4KRbEBUG7wm3ixKiJdSkdcYY5ZzIHqYFG-4JaeYUrYwnUfj1b-Pjds2Sb_rhp3MTpdSelHmRoDgSeotHjVirohJ2HYyqQSa71J3e7W_5G_r4vAbLhpof6jsg",
         name: "शिक्षा योजना",
         description: "वास्ता शिक्षा योजना के माध्यम से उन बच्चो को लाभ मिलेगा जिन बच्चो को उनके माता पिता के आर्थिक तंगी के कारन पढाई छोड़ चुके है और वो पढ़ना चाहते है तो वैसे बच्चें को शिक्षा योजना के तहत उनके बेहतर भविष्य में यथासंभव मदद किया जायेगा. ' वास्ता  के द्वारा (निःशुल्क) बेटी पढाओ योजना की सुविधा वैसी बेटियों के लिए है जिनके माता-पिता आर्थिक तंगी के कारन उन्हें उच्य शिक्षा की पढाई करवाने में सक्षम नही है | उन बेटियों को वास्ता के द्वारा उच्य शिक्षा के लिए पढाने में यथासंभव मदद किया जायेगा , इस योजना का लाभ उठाने हेतु बेटी का वास्ता योजना कार्ड में रजिस्ट्रेशन करवाए |  (अधिकतम आयु सीमा 20 वर्ष  )'", 
         
@@ -64,7 +64,7 @@ const plans = [
         description:"वास्ता के तहत विक्लांग योजना के द्वारा विक्लांग वास्ता योजना कार्ड धारक  को हर तरह का सहयोग दिया जायेगा जैसे – स्वरोजगार योजना के तहत आर्थिक मदद करके उनको स्वरोजगार करवाना, तथा व्हीलचेयर, वैशाकी दिलवाने में यथासंभव मदद करना | "
     },
     {
-        imageUrl:"https://plus.unsplash.com/premium_photo-1677819152981-26de655300c5?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        imageUrl:"https://images.businessnewsdaily.com/app/uploads/2022/04/04073215/customer-service_Chainarong-Prasertthai_getty.jpg",
         name:"सरकारी योजनाओं के बारे में जानकारी प्रदान करना ",
         description:"वास्ता के तहत इस योजना के अंतर्गत हमारा उद्देश्य अपने सदस्यों को समय-समय पर सरकारी योजनाओं के बारे में उचित जानकारी प्रदान करना है ताकि हमारे सदस्य सरकारी योजनाओं का लाभ उठा सकें। "
     },

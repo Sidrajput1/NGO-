@@ -2,7 +2,6 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import Nav from './components/Nav';
 import Home from './components/Pages/Home';
 import About from './components/Pages/About';
 import Footer from './components/Footer';
@@ -20,6 +19,8 @@ import NotFound from './components/Pages/NotFound';
 
 import Donate from './components/Donate';
 import CheckOut from './components/CheckOut';
+import Navbar from './components/Navbar';
+import Intern from './components/CareerPage/Intern';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
   return (
 
     <PayPalScriptProvider options={initialOptions} >
-      <Nav />
+      <Navbar />
 
       <Routes>
         <Route path={'/'} element={<Home />}></Route>
@@ -51,7 +52,7 @@ function App() {
         <Route path={'/vaasta/member'} element={<Member />}></Route>
         <Route path={'/donate'} element={<Donate />}></Route>
         <Route path={'/checkout'} element={<CheckOut/>}></Route>
-
+        <Route path={'/Internship'} element={<Intern/>} ></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer />

@@ -1,12 +1,13 @@
 import React from 'react'
 import vasta1 from '../../assets/pics/vasta1.jpg'
+import hand2 from '../../assets/pics/hand2.jpeg'
 
 function Vaasta() {
     return (
         <div className='w-full min-h-[200vh]'>
 
             <div className='w-full bg-gradient-to-b  '>
-                <img src={vasta1} alt="NGO Education Image" className='w-full h-[85vh] brightness-150 transform scale-[1]   object-cover object-center rounded-b-[15rem] ' />
+                <img src="https://t3.ftcdn.net/jpg/06/80/57/30/360_F_680573021_I7pz1qqlNrpTChYNU57FOXPs5XQO8zWx.jpg" alt="NGO Education Image" className='w-full h-[85vh]  transform scale-[1]   object-cover object-center  ' />
             </div>
             <div id='vaasta'
                 style={{ background: `$black` }}
