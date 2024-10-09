@@ -1,22 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Intro from '../Intro';
 
 function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+        mobile_no: ''
+    })
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch('https://prabisvg.com//phpbox/sendingmail.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+            } else {
+                alert('Failed to send message.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error sending the message.');
+        }
+    }
     return (
-        
+
         <div className='w-full min-h-screen flex flex-col justify-center items-center'>
-            <img src='https://img.freepik.com/premium-photo/vintage-telephone-white-old-phone-handset-pink-wall-background-copy-space-3d-illustration_771335-1897.jpg' alt="NGO Image" className='w-full object-cover mb-8 max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] lg:max-h-[70vh] xl:max-h-[80vh]' />
+            <Intro
+                heading='Drop a message and we will get back to you Asap'
+                image='https://img.freepik.com/premium-photo/red-telephone-receiver-hanging-against-gray-background_1048944-24563307.jpg'
+                breadcrumbItems={[
+                    {label:'Home',href:'/'},
+                    {label:'Contact Us',href:'/work/saas'},
+                    {label:'Contact Us',href:'/contact'}
+                  ]}
+            />
+            {/* <img src='https://img.freepik.com/premium-photo/red-telephone-receiver-hanging-against-gray-background_1048944-24563307.jpg' alt="NGO Image" className='w-full object-cover mb-8 max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] lg:max-h-[70vh] xl:max-h-[80vh]' />
             <div className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 p-4 rounded-md">
                 <p className="text-white md:text-6xl text-4xl max-w-lg line-clamp-3 font-semibold">Drop a message and we will get back to you Asap</p>
-            </div>
+            </div> */}
             <div className="lg:col-span-2 md:mt-0 mt-32  rounded sm:p-10 p-4 z-10 w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]">
                 <h2 className="md:text-6xl text-xl text-orange-400 text-center font-extrabold mb-6">Contact Us</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="max-w-sm mx-auto space-y-4">
-                        <input type='text' placeholder='Name' className="w-full bg-gray-100 rounded py-3 px-6 text-sm outline-none" />
-                        <input type='email' placeholder='Email' className="w-full bg-gray-100 rounded py-3 px-6 text-sm outline-none" />
-                        <input type='tel' placeholder='Phone No.' className="w-full bg-gray-100 rounded py-3 px-6 text-sm outline-none" />
-                        <textarea placeholder='Message' rows="6" className="w-full bg-gray-100 rounded px-6 text-sm pt-3 outline-none"></textarea>
-                        <button type='button' className="text-[#333] mx-auto block relative bg-gray-100 hover:bg-gray-200 font-semibold rounded text-sm px-6 py-3">
+                        <input type='text' placeholder='Name' name='name' value={formData.name} onChange={handleChange} className="w-full bg-gray-100 rounded py-3 px-6 text-sm outline-none" />
+                        <input type='email' placeholder='Email' name='email' value={formData.email} onChange={handleChange} className="w-full bg-gray-100 rounded py-3 px-6 text-sm outline-none" />
+                        <input type='tel' placeholder='Phone No.' name='mobile_no' value={formData.mobile_no} onChange={handleChange} className="w-full bg-gray-100 rounded py-3 px-6 text-sm outline-none" />
+                        <textarea placeholder='Message' rows="6" name='message' value={formData.message} onChange={handleChange} className="w-full bg-gray-100 rounded px-6 text-sm pt-3 outline-none"></textarea>
+                        <button type='submit' className="text-[#333] mx-auto block relative bg-gray-100 hover:bg-gray-200 font-semibold rounded text-sm px-6 py-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill='currentColor' className="mr-2 inline" viewBox="0 0 548.244 548.244">
                                 <path fillRule="evenodd" d="M392.19 156.054 211.268 281.667 22.032 218.58C8.823 214.168-.076 201.775 0 187.852c.077-13.923 9.078-26.24 22.338-30.498L506.15 1.549c11.5-3.697 24.123-.663 32.666 7.88 8.542 8.543 11.577 21.165 7.879 32.666L390.89 525.906c-4.258 13.26-16.575 22.261-30.498 22.338-13.923.076-26.316-8.823-30.728-22.032l-63.393-190.153z" clipRule="evenodd" data-original="#000000" />
                             </svg>

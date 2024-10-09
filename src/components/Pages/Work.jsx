@@ -1,13 +1,23 @@
 import React from 'react'
 import where2 from '../../assets/pics/where2.jpg'
 import WeWork from './WeWork'
+import Intro from '../Intro'
 
 function Work() {
     return (
         <div className='w-full min-h-[150vh]'>
-            <div className='w-full ' >
+            {/* <div className='w-full ' >
                 <img src={where2} alt="Where We Work " className='w-full md:h-[70vh] h-full object-cover ' />
-            </div>
+            </div> */}
+             <Intro
+                heading='Where We Work'
+                image={where2}
+                breadcrumbItems={[
+                    {label:'Home',href:'/'},
+                    {label:'Where We Works',href:'/about/work'},
+                    {label:'Contact Us',href:'/contact'}
+                  ]}
+            />
             <div id='vaasta'
                 style={{ background: `$black` }}
                 className='h-32 md:w-[90%] w-[100%] text-center m-auto py-4   '

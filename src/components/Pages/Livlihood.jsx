@@ -1,13 +1,20 @@
 import React from 'react'
 import life from '../../assets/pics/life.webp'
+import Intro from '../Intro'
 
 function Livlihood() {
     return (
         <div>
 
-            <div className='w-full'>
-                <img src={life} alt="NGO Image" className='w-full h-[70vh]  object-cover scale-[1] ' />
-            </div>
+<Intro
+                heading='Livlihood'
+                image={life}
+                breadcrumbItems={[
+                    {label:'Home',href:'/'},
+                    {label:'Livlihood',href:'/work/livlihood'},
+                    {label:'Contact Us',href:'/contact'}
+                  ]}
+            />
             <div id='livlihood'
                 style={{ background: `$black` }}
                 className='h-32 md:w-[90%] w-[100%] text-center m-auto mt-4 bg-gray-300 '

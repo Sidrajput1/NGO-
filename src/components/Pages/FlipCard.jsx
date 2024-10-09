@@ -43,7 +43,7 @@ function FlipCard({imageUrl,name,description}) {
 
 
   return (
-    <div className='card'>
+    <div className='card1'>
 
       <ReactCardFlip
         isFlipped={isFiliped}

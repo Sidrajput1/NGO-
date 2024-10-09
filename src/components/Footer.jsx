@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import VisitorCounter from './VisitCounter'
 function Footer() {
     return (
         <footer className="bg-[#0a4275] font-sans">
@@ -7,7 +8,7 @@ function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
 
                     <div className="lg:col-span-2">
-                        <h2 className='text-3xl text-orange-500 font-serif text-wrap font-bold pl-0 '>PRABISVG SAMAJ KALYAN <span className='text-sky-300'>EVUM SHIKSHAN SANSTHA</span></h2>
+                        <h2 className='text-3xl  text-sky-300 font-serif text-wrap font-bold pl-0 '>PRABISVG SAMAJ KALYAN <span className='text-orange-500'>EVUM SHIKSHAN SANSTHA</span></h2>
                         <p className="text-gray-300 text-lg"> we are trying to make a
                             difference wherever we can. However, we need your
                             support to further our cause.
@@ -29,7 +30,7 @@ function Footer() {
                         <h4 className="text-lg font-semibold mb-8 text-white">Follow Us</h4>
 
                         <ul className="flex gap-4">
-                            <li><a href="#">
+                            <li><a href="https://www.facebook.com/profile.php?id=61559846313626&paipv=0&eav=AfZglcD5SRBIsHoH5VeKQ8_unkqbSEHEzm_X55Yr651TfHeIynXoKDsa-nXmIlxzhGI" target='_blank'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" className="fill-gray-300 inline hover:fill-white w-6 h-6"
                                     viewBox="0 0 24 24">
                                     <path fillRule="evenodd"
@@ -43,7 +44,7 @@ function Footer() {
                                         d="M21 5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5zm-2.5 8.2v5.3h-2.79v-4.93a1.4 1.4 0 0 0-1.4-1.4c-.77 0-1.39.63-1.39 1.4v4.93h-2.79v-8.37h2.79v1.11c.48-.78 1.47-1.3 2.32-1.3 1.8 0 3.26 1.46 3.26 3.26zM6.88 8.56a1.686 1.686 0 0 0 0-3.37 1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 1.57v8.37H5.5v-8.37h2.77z"
                                         clipRule="evenodd" />
                                 </svg></a></li>
-                            <li><a href="#" className="text-gray-300 hover:text-white">
+                            <li><a href="https://www.instagram.com/prabisvg/" target='_blank' className="text-gray-300 hover:text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" className="fill-gray-300 inline hover:fill-white w-6 h-6"
                                     viewBox="0 0 24 24">
                                     <path
@@ -64,7 +65,7 @@ function Footer() {
                         <div className="space-y-4">
                             <p className="text-gray-300 text-sm">Building no- 367,opp,central,Bank of india, Lohiya Nagar,Kankarbagh,patna-800020</p>
                             <p className="text-gray-300 text-sm">prabisvg@gmail.com</p>
-                            <p className="text-gray-300 text-sm">0612-2352234</p>
+                            <p className="text-gray-300 text-sm">0612-352245</p>
                             <p className="text-gray-300 text-sm">9431442634</p>
                             
 
@@ -75,11 +76,22 @@ function Footer() {
             </div>
 
             <div className="text-center py-5 bg-[#000] text-white">
-                <h2 className='text-6xl tracking-[0.7rem]  font-bold '></h2>
+                <div className='inline-flex'>
+                <h2 className='text-xl tracking-[0.7rem] text-sky-500  font-bold pt-1  '>
+                    Total Visitors:
+                </h2>
+                <span className='py-2 inline '> <a href="https://www.freecounterstat.com" title="free hit counter"><img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=x37ee29811wc9dj1cjtqt9yd35hwjfab" border="0" title="free hit counter" alt="free hit counter"/></a></span>
+                </div>
                 <h3 className='text-3xl font-semibold'>Support Us</h3>
-                <h4>Collbrate with Us</h4>
+                {/* <h4>Collbrate with Us</h4> */}
                 <p className='text-gray-300 text-sm'>© 2023<a href='https://readymadeui.com/' target='_blank'
-                    className="hover:underline mx-1"></a>Copyright © 2023 PRABISVG SAMAJ KALYAN EVUM SHIKSHAN SANSTHAN. All Rights Reserved</p>
+                    className="hover:underline mx-1"></a>Copyright © 2023 PRABISVG SAMAJ KALYAN EVUM SHIKSHAN SANSTHA. All Rights Reserved</p>
+                {/* <a href="https://visitcount.itsvg.in">
+  <img src="https://visitcount.itsvg.in/api?id=PRABISVG&label=Website%20Views&icon=1&pretty=false" />
+</a> */}
+           
+            {/* <a href="https://www.freecounterstat.com" title="free counter"><img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=ct714dexfxr9tj6uanc1l9f38289ljyd" border="0" title="free counter" alt="free counter"/></a> */}
+            
             </div>
         </footer>
     )

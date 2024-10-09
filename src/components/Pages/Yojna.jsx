@@ -1,13 +1,23 @@
 import React from 'react'
 import yozna from '../../assets/pics/yozna.jpg'
 import YojnaCard from './YojnaCard'
+import Intro from '../Intro'
 
 function Yojna() {
   return (
     <div className='w-full'>
-      <div className='w-full'>
+      {/* <div className='w-full'>
         <img src={yozna} alt="NGO Image" className='w-full object-contain ' />
-      </div>
+      </div> */}
+      <Intro
+                heading='Hamari Yozna'
+                image={yozna}
+                breadcrumbItems={[
+                    {label:'Home',href:'/'},
+                    {label:'Yojna',href:'/vaasta/yojna'},
+                    {label:'Contact Us',href:'/contact'}
+                  ]}
+            />
       {/* <div id='vaasta'
                 style={{ background: `$black` }}
                 className='h-32 md:w-[90%] w-[100%] text-center m-auto py-4   '

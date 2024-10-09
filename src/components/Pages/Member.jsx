@@ -2,7 +2,7 @@ import React from 'react'
 import family from '../../assets/pics/family.jpg'
 function Member() {
     return (
-        <div className='w-full min-h-[100vh] bg-stone-300'>
+        <div className='w-full min-h-[80vh] bg-stone-300'>
            
             <div className="relative font-[sans-serif] before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10 top-24 h-[70vh]">
                 <img src={family} alt="Banner Image" className="absolute inset-0 w-full h-full object-cover" />

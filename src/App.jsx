@@ -1,64 +1,107 @@
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-import './App.css'
-import { Routes, Route } from 'react-router-dom';
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import Home from './components/Pages/Home';
-import About from './components/Pages/About';
-import Footer from './components/Footer';
-import Vm from './components/Pages/Vm';
-import Education from './components/Pages/Education';
-import Health from './components/Pages/Health';
-import Livlihood from './components/Pages/Livlihood';
-import Gallery from './components/Pages/Gallery';
-import Vaasta from './components/Pages/Vaasta';
-import Yojna from './components/Pages/Yojna';
-import Contact from './components/Pages/Contact';
-import Work from './components/Pages/Work';
-import Member from './components/Pages/Member';
-import NotFound from './components/Pages/NotFound';
+import Home from "./components/Pages/Home";
+import About from "./components/Pages/About";
+import Footer from "./components/Footer";
+import Vm from "./components/Pages/Vm";
+import Education from "./components/Pages/Education";
+import Health from "./components/Pages/Health";
+import Livlihood from "./components/Pages/Livlihood";
+import Gallery from "./components/Pages/Gallery";
+import Vaasta from "./components/Pages/Vaasta";
+import Yojna from "./components/Pages/Yojna";
+import Contact from "./components/Pages/Contact";
+import Work from "./components/Pages/Work";
+import Member from "./components/Pages/Member";
+import NotFound from "./components/Pages/NotFound";
 
-import Donate from './components/Donate';
-import CheckOut from './components/CheckOut';
-import Navbar from './components/Navbar';
-import Intern from './components/CareerPage/Intern';
+import Donate from "./components/Donate";
 
+import Navbar from "./components/Navbar";
+import Intern from "./components/CareerPage/Intern";
+import ScrollToTop from "./components/ScrollToTop";
+import Shield from "./components/Pages/Shield";
+import Event from "./components/Pages/Event";
+import Asked from "./components/Pages/Asked";
+import Story from "./components/CareerPage/Story";
+import WorkStory from "./components/CareerPage/WorkStory";
+import Login from "./components/admin/Login";
+import Dashboard from "./components/admin/Dashboard";
+import AddStory from "./components/admin/AddStory";
+import AddNotice from "./components/admin/AddNotice";
+import Header from "./components/Header";
+import RunningNotice from "./components/admin/RunningNotice";
+import DelStory from "./components/admin/DelStory";
+import UpdateStory from "./components/admin/UpdateStory";
+import NoticePage from "./components/NoticePage";
+import DelNotice from "./components/admin/DelNotice";
+import UpdateNotice from "./components/admin/UpdateNotice";
+import AddDonor from "./components/admin/AddDonor";
+import AddSponser from "./components/admin/AddSponser";
+import ReliefCamp from "./components/CareerPage/ReliefCamp";
+import EmpLogin from "./components/employee/EmpLogin";
+import EmpDash from "./components/employee/EmpDash";
+import MakeReport from "./components/employee/MakeReport";
 
 function App() {
-
-  const initialOptions = {
-    "client-id": "AbKr4QlHgxgo1VG80TJRT8HIwOs4oemBr56goGd9UJILDVn0Hcl4HOOqwjFoDn8qxZ61orhzxlew_1kZ",
-    currency: "USD",
-    intent: "capture",
-  };
-
+  // const initialOptions = {
+  //   "client-id":
+  //     "AbKr4QlHgxgo1VG80TJRT8HIwOs4oemBr56goGd9UJILDVn0Hcl4HOOqwjFoDn8qxZ61orhzxlew_1kZ",
+  //   currency: "USD",
+  //   intent: "capture",
+  // };
 
   return (
-
-    <PayPalScriptProvider options={initialOptions} >
+    <>
+      <Header/>
+      <RunningNotice/>
       <Navbar />
+      <ScrollToTop />
 
       <Routes>
-        <Route path={'/'} element={<Home />}></Route>
-        <Route path={'/about'} element={<About />}></Route>
-        <Route path={'/about/vision'} element={<Vm />}></Route>
-        <Route path={'/work/education'} element={<Education />}></Route>
-        <Route path={'/work/health'} element={<Health />}></Route>
-        <Route path={'/work/livlihood'} element={<Livlihood />}></Route>
-        <Route path={'/gallery'} element={<Gallery />}></Route>
-        <Route path={'/vaasta'} element={<Vaasta />}></Route>
-        <Route path={'/vaasta/yojna'} element={<Yojna />}></Route>
-        <Route path={'/contact'} element={<Contact />}></Route>
-        <Route path={'/about/work'} element={<Work />}></Route>
-        <Route path={'/vaasta/member'} element={<Member />}></Route>
-        <Route path={'/donate'} element={<Donate />}></Route>
-        <Route path={'/checkout'} element={<CheckOut/>}></Route>
-        <Route path={'/Internship'} element={<Intern/>} ></Route>
-        <Route path='*' element={<NotFound />}></Route>
+        {/* <ScrollToTop/> */}
+        <Route path={"/"} element={<Home />}></Route>
+        <Route path={"/about"} element={<About />}></Route>
+        <Route path={"/about/vision"} element={<Vm />}></Route>
+        <Route path={"/work/education"} element={<Education />}></Route>
+        <Route path={"/work/health"} element={<Health />}></Route>
+        <Route path={"/work/livlihood"} element={<Livlihood />}></Route>
+        <Route path={"/gallery"} element={<Gallery />}></Route>
+        <Route path={"/vaasta"} element={<Vaasta />}></Route>
+        <Route path={"/vaasta/yojna"} element={<Yojna />}></Route>
+        <Route path={"/contact"} element={<Contact />}></Route>
+        <Route path={"/about/work"} element={<Work />}></Route>
+        <Route path={"/work/saas"} element={<Shield />}></Route>
+        <Route path={"/vaasta/member"} element={<Member />}></Route>
+        <Route path={"/donate"} element={<Donate />}></Route>
+        
+        <Route path={"/Internship"} element={<Intern />}></Route>
+        <Route path={"/events"} element={<Event />}></Route>
+        <Route path={"/help"} element={<Asked />}></Route>
+        <Route path={"/story"} element={<Story />}></Route>
+        <Route path="/workstory" element={<WorkStory />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/dashboard" element={<Dashboard/>}></Route>
+        <Route path='/uploadstory' element={<AddStory/>}></Route>
+        <Route path="/story/:id/update" element={<UpdateStory/>}></Route>
+        <Route path="/story/del" element={<DelStory/>}></Route>
+        <Route path='/addnotice' element={<AddNotice/>}></Route>
+        <Route path="/allnotices" element={<NoticePage/>}></Route>
+        <Route path="/notice/del" element={<DelNotice/>}></Route>
+        <Route path="/notice/:id/update" element={<UpdateNotice/>}></Route>
+        <Route path="/adddonor" element={<AddDonor/>}></Route>
+        <Route path="/addsponser" element={<AddSponser/>}></Route>
+        <Route path="/reliefcamp" element={<ReliefCamp/>}></Route>
+        <Route path="/emplogin" element={<EmpLogin/>}></Route>
+        <Route path="/empdash" element={<EmpDash/>}></Route>
+        <Route path="/makereport" element={<MakeReport/>}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
-      <Footer />
-    </PayPalScriptProvider>
 
-  )
+      <Footer />
+    </>
+  );
 }
 
 export default App;

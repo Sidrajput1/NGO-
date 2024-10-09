@@ -1,13 +1,23 @@
 import React from 'react'
-import aboutUs from '/Users/apple/Desktop/Shimmer Group/Ngo/src/assets/pics/aboutUs.jpg'
+import aboutUs from '../../assets/pics/aboutUs.jpg'
 import aboutUs2 from '../../assets/pics/aboutUs2.jpg'
+import Intro from '../Intro'
 
 function About() {
   return (
     <div className='w-full p-0 h-auto'>
-      <div className='w-full'>
+      {/* <div className='w-full'>
         <img src={aboutUs} alt="NGO Image" className='w-full object-contain ' />
-      </div>
+      </div> */}
+      <Intro
+        heading="About Us"
+        image={aboutUs}
+        breadcrumbItems={[
+          {label:'Home',href:'/'},
+          {label:'About Us',href:'/aboutus'},
+          {label:'Contact Us',href:'/contact'}
+        ]}
+      />
       <div id='about'
         style={{ background: `$black` }}
         className='h-32 md:w-[90%] w-[100%] text-center m-auto mt-4 bg-gray-300 '
@@ -22,7 +32,7 @@ function About() {
           <div className='w-full md:w-[50%]  flex justify-center'>
             <h2 className='md:text-6xl text-4xl max-w-2xl line-clamp-7 font-semibold  px-10 text-center md:text-left'>Empowered women and girls can lift
               their entire families and communities
-              out of <span className=' bg-orange-500 mt-2'>Poverty.</span></h2>
+              out of <span className='  mt-2'>Poverty.</span></h2>
           </div>
           <div className='w-full md:w-[50%]  flex justify-center items-center md:mt-0  mt-3'>
             <p className='text-lg md:text-xl max-w-xl line-clamp-10 md:text-left text-center '>

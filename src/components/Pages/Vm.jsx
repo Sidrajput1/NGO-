@@ -1,13 +1,23 @@
 import React from 'react'
 import vision2 from '../../assets/pics/vision2.jpg'
 import misson from '../../assets/pics/misson.jpg' 
+import Intro from '../Intro'
 
 function Vm() {
     return (
         <div className='w-full p-0 h-auto'>
-            <div className='w-full'>
+            {/* <div className='w-full'>
                 <img src={vision2} alt="NGO Image" className='w-full object-contain ' />
-            </div>
+            </div> */}
+            <Intro
+                heading='Vision and Misson'
+                image={vision2}
+                breadcrumbItems={[
+                    {label:'Home',href:'/'},
+                    {label:'Vision and Mision',href:'/about/vision'},
+                    {label:'Contact Us',href:'/contact'}
+                  ]}
+            />
 
             <div id='vm'
                 style={{ background: `$black` }}

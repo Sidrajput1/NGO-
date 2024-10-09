@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import vasta1 from '../../assets/pics/vasta1.jpg'
 import hand2 from '../../assets/pics/hand2.jpeg'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Intro from '../Intro';
 
 function Vaasta() {
+    useEffect(() => {
+        AOS.init({
+
+        })
+    }, [])
     return (
         <div className='w-full min-h-[200vh]'>
 
-            <div className='w-full bg-gradient-to-b  '>
-                <img src="https://t3.ftcdn.net/jpg/06/80/57/30/360_F_680573021_I7pz1qqlNrpTChYNU57FOXPs5XQO8zWx.jpg" alt="NGO Education Image" className='w-full h-[85vh]  transform scale-[1]   object-cover object-center  ' />
-            </div>
+            {/* <div className='w-full bg-gradient-to-b  '>
+                <img src="https://img.freepik.com/premium-photo/closeup-hands-handshake-showing-meeting-success-team-support-manager-welcoming-promoting-agreeing-with-colleague-hand-gesture-two-people-symbolizing-unity-power-strength-together_590464-77742.jpg" alt="NGO Education Image" className='w-full h-[85vh]  transform scale-[1]   object-cover object-center  ' />
+            </div> */}
+             <Intro
+                heading='Vaasta'
+                image='https://img.freepik.com/premium-photo/closeup-hands-handshake-showing-meeting-success-team-support-manager-welcoming-promoting-agreeing-with-colleague-hand-gesture-two-people-symbolizing-unity-power-strength-together_590464-77742.jpg'
+                breadcrumbItems={[
+                    {label:'Home',href:'/'},
+                    {label:'Vaasta',href:'/vaasta'},
+                    {label:'Contact Us',href:'/contact'}
+                  ]}
+            />
             <div id='vaasta'
                 style={{ background: `$black` }}
+                data-aos="flip-left"
+                data-aos-delay="100"
+                data-aos-duration="1500"
                 className='h-32 md:w-[90%] w-[100%] text-center m-auto py-4   '
             >
                 <h1 className='text-6xl text-center py-9 font-semibold bg-orange-300 rounded-b-full tracking-wider '>Vaasta</h1>
@@ -18,12 +38,21 @@ function Vaasta() {
 
             </div>
             <div className='w-full flex flex-col justify-around gap-0 items-center md:h-[95vh] h-auto '>
-                <div>
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="3000"
+                    data-aos-delay="300"
+                    
+                >
                     <h2 className='text-center md:text-9xl text-7xl md:py-0 py-8 mt-8 text-orange-500 font-bold'>हम क्या हैं!</h2>
                     <img className=' h-24 w-[45rem] object-cover object-center transform scale-[1.1] pt-8 md:mt-3 mt-0' src="https://t4.ftcdn.net/jpg/04/13/47/65/360_F_413476567_bfwm2jfsnGZnzZzPymSLvETacYSHFpig.jpg" alt="" />
                 </div>
 
-                <div>
+                <div
+                    data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500"
+                >
                     <p className='max-w-2xl line-clamp-7 text-xl font-light text-justify'>
                         <span className='text-orange-600 text-4xl font-semibold'>वास्ता </span>
                         एक ऐसी सोच है, जो समाज के उन लोगो के लिए बनाई गई है जो अपनी आर्थिक तंगी के कारन बहुत सारी परेसानियो से जूझ रहे है, जैसे- बच्चो की पढाई में परेशानी होना, घर के सदस्य को कोई गंभीर बिमारी हो जाये तो उस परेशानी को झेलना, रोजगार की समस्या, वैसे बच्चे जिनके माता पिता इस दुनिया में नही है, विक्लांगता के कारण समस्या को झेलना, कन्या विवाह के समय आर्थिक समस्या, विधवा हो जाने पर आर्थिक परेशानीयों को झेलना, इत्यादि|

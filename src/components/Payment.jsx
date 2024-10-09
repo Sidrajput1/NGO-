@@ -1,81 +1,157 @@
-import React, { useState } from 'react'
-import QRCode from 'qrcode.react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import QRCode from "qrcode.react";
+import { Navigate, useNavigate } from "react-router-dom";
+import "./donate.css";
 
 function Payment() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile_no: "",
+    pan_no: "",
+    amount: "",
+  });
 
-        const navigate = useNavigate();
+  const [paymentInfo, setPaymentInfo] = useState("");
+  // const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+  const [showThankYou, setShowThankYou] = useState(false);
 
-        const [formData,setFormData] = useState({
-            name:'',
-            email:'',
-            phone:'',
-            amount:'',
-        })
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-        const [paymentInfo,setPaymentInfo] = useState('')
-        const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+  const generatePaymentLink = async (e) => {
+    e.preventDefault();
+    const paymentLink = `upi://pay?pa=1000220618000049.9472670475@idbi&pn=PRABISVG SAMAJ KALYAN & SHIKSHAN SANSTHA&mc=8398&am=${formData.amount}`;
+    setPaymentInfo(paymentLink);
 
-        const handleChange = ((e) =>{
-            e.preventDefault();
-            const {name,value} = e.target;
-            setFormData({ ...formData,[name]:value})
-            
-        })
+    setTimeout(() => {
+      setShowThankYou(true);
+    }, 50000);
 
-        const generatePaymentLink = (()=> {
-            // const PaypaPaymentLink = `https://www.paypal.com/paypalme/example?amount=${formData.amount}&note=Donation%20from%20${formData.name}`
-            // setPaymentInfo(PaypaPaymentLink)
-            if (selectedPaymentMethod === 'phonepe') {
-                // Generate PhonePe UPI QR code
-                const phonePeQRCode = `upi://pay?pa=merchant@upi&pn=Merchant&am=${formData.amount}&cu=INR`;
-                setPaymentInfo(phonePeQRCode);
-              } else if (selectedPaymentMethod === 'paytm') {
-                // Generate Paytm QR code
-                const paytmQRCode = `https://paytm.com/pay?6201274925@paytm=${formData.merchantID}&amount=${formData.amount}&currency=INR`;
-                setPaymentInfo(paytmQRCode);
-              }
-        })
+    try {
+      const response = await fetch(
+        "https://prabisvg.com//phpbox/sendingmail.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("There was an error sending the message.");
+    }
+  };
   return (
     <div>
-         <form className="space-y-6 px-4 max-w-sm mx-auto font-[sans-serif]">
-                        <div className="flex items-center">
-                            <label className="text-white w-36 text-sm">Name</label>
-                            <input type="text" name='name'id='name' value={formData.name} onChange={handleChange} placeholder="Enter your name"
-                                className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white" />
-                        </div>
-                        <div className="flex items-center">
-                            <label className="text-white w-36 text-sm">Email</label>
-                            <input type="email" id='email' name='email' value={formData.email} onChange={handleChange} placeholder="Enter your email"
-                                className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white" />
-                        </div>
-                        <div className="flex items-center">
-                            <label className="text-white w-36 text-sm">Phone No.</label>
-                            <input type="number" name='phone' id='number' value={formData.phone} onChange={handleChange} placeholder="Enter your phone no"
-                                className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white" />
-                        </div>
-                        <div className="flex items-center">
-                            <label className="text-white w-36 text-sm">Donate Amount</label>
-                            <input type="number" id='amount' name='amount' value={formData.amount} onChange={handleChange} placeholder="Amount "
-                                className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white" />
-                        </div>
-                        <div>
-          <label className="text-white text-sm">Select Payment Method:</label>
-          <select value={selectedPaymentMethod} onChange={(e) => setSelectedPaymentMethod(e.target.value)}
-            className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white">
-            <option value="">Select</option>
-            <option value="phonepe">PhonePe</option>
-            <option value="paytm">Paytm</option>
-            {/* Add more payment methods as needed */}
-          </select>
+      <form
+        onSubmit={generatePaymentLink}
+        className="space-y-6 px-4 max-w-sm mx-auto font-[sans-serif]"
+      >
+        <div className="flex items-center">
+          <label className="text-white w-36 text-sm">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Enter your name"
+            className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white"
+          />
         </div>
-                        <button type="button" onClick={()=>navigate('/checkout')}
-                            className="px-6 py-2 w-full bg-orange-400 text-sm text-white hover:bg-[#444] mx-auto block">Submit</button>
-                    </form>
-                    {paymentInfo && <QRCode value={paymentInfo}/>}
-                    
+        <div className="flex items-center">
+          <label className="text-white w-36 text-sm">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+            className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white"
+          />
+        </div>
+        <div className="flex items-center">
+          <label className="text-white w-36 text-sm">Phone No.</label>
+          <input
+            type="number"
+            name="mobile_no"
+            id="mobile_no"
+            value={formData.mobile_no}
+            onChange={handleChange}
+            placeholder="Enter your phone no"
+            className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white"
+          />
+        </div>
+        <div className="flex items-center">
+          <label className="text-white w-36 text-sm">Pan No.</label>
+          <input
+            type="text"
+            name="pan_no"
+            id="pan_no"
+            value={formData.pan_no}
+            onChange={handleChange}
+            placeholder="Enter your Pan (optional) "
+            className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white"
+          />
+        </div>
+        <div className="flex items-center">
+          <label className="text-white w-36 text-sm">Donate Amount</label>
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            value={formData.amount}
+            onChange={handleChange}
+            placeholder="Amount "
+            className="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-sm bg-transparent text-white"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="px-6 py-2 w-full bg-orange-400 text-sm text-white hover:bg-[#444] mx-auto block"
+        >
+          Submit
+        </button>
+
+        {/* {paymentInfo && <QRCode value={paymentInfo} />} */}
+        {paymentInfo && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className="p-6 bg-white text-center rounded-lg shadow-lg animate-fade-in">
+              <QRCode value={paymentInfo} size={256} className="mx-auto" />
+              <h2 className="text-2xl font-bold mt-4">
+                Scan the QR Code to Complete Your Payment
+              </h2>
+              <p className="text-sm text-gray-600">
+                Thank you for your donation!
+              </p>
+            </div>
+          </div>
+        )}
+      </form>
+      {showThankYou && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="p-6 bg-orange-500 text-white text-center rounded-lg animate-fade-in">
+            <h2 className="text-2xl font-bold">Thank You for Your Donation!</h2>
+            <p className="text-sm">We appreciate your generosity.</p>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Payment
+export default Payment;

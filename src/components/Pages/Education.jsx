@@ -1,6 +1,7 @@
 import React from 'react'
 import edu from '../../assets/pics/edu.jpg'
 import education from '../../assets/pics/education.jpg';
+import Intro from '../Intro';
 
 function Education() {
   return (
@@ -40,9 +41,18 @@ function Education() {
 
     // </div>
     <div className='w-full min-h-[180vh]'>
-      <div className='w-full bg-gradient-to-b from-cyan-500 to-blue-400'>
+      {/* <div className='w-full bg-gradient-to-b from-cyan-500 to-blue-400'>
         <img src={edu} alt="NGO Education Image" className='w-full object-cover rounded-b-full ' />
-      </div>
+      </div> */}
+      <Intro
+                heading='Education'
+                image={edu}
+                breadcrumbItems={[
+                    {label:'Home',href:'/'},
+                    {label:'Education',href:'/education'},
+                    {label:'Contact Us',href:'/contact'}
+                  ]}
+            />
       <div id='about' style={{ background: `$black` }} className='h-28 w-[90%] text-center m-auto mt-4 bg-gray-300'>
         <h1 className='text-6xl text-center py-8 font-semibold bg-orange-300'>Education</h1>
       </div>

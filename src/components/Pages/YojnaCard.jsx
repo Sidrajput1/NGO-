@@ -42,7 +42,7 @@ const plans = [
         description: "वास्ता योजना कार्ड  धारक  गर्भवती महिला सदस्य जिनकी आर्थिक स्थिति सही नहीं है तो उन्हें  प्रसव के समय यथासंभव आर्थिक रूप से सहायता किया जायेगा तथा साथ ही साथ उन्हें उचित मार्ग दर्शन भी दिया जायेगा |  नोट:- इस योजना का लाभ  सिर्फ पहला और दुसरे बच्चे के प्रसव के दौरान ही दिया जायेगा अन्य पर ये लागु नही हैं| ",
     },
     {
-        imageUrl: "https://blogger.googleusercontent.com/img/a/AVvXsEiBZoL_EB29ozJpyljIyMtwpfcLkLrrcjHD1lxkZdbQW9HXA3vY6r32VZ8qYC2nGdem-oK-O9iDw5gObgCK5xbO6c0cIUEerRpol_3BslDEvFY6JVZTWlPqPF8LS7a9QAJhFNng3ds4BOAcXKJA-KzBOvjjrQfNr7UvHGLgmLgDZ3l8TPZfOurKiwE=w640-h530",
+        imageUrl: "https://img-cdn.thepublive.com/fit-in/640x430/filters:format(webp)/hindi/media/media_files/b0sqygDpF8uB4NbEGuqP.png",
         name: "विधवा सहायता योजना ",
         description: "वास्ता के विधवा सहायता योजना के तहत जिस परिवार में कोई महिला विधवा हो जाती है और उनकी उम्र 18-45 है और उस परिस्थिति में उनके पास आय की कोई सुविधा नहीं है वैसी महिला वास्ता योजना कार्ड धारक   को वास्ता के तरफ से उन्हें आर्थिक रूप से सहायता करके स्वरोजगार करवा दिया जायेगा ताकी वह अपना जीवन आत्मनिर्भर हो कर गुजार सके | ",
     },
