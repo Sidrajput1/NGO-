@@ -43,6 +43,13 @@ import ReliefCamp from "./components/CareerPage/ReliefCamp";
 import EmpLogin from "./components/employee/EmpLogin";
 import EmpDash from "./components/employee/EmpDash";
 import MakeReport from "./components/employee/MakeReport";
+import RegsEmp from "./components/admin/RegsEmp";
+import GetEmp from "./components/admin/GetEmp";
+import FutureMeeting from "./components/employee/FutureMeeting";
+import UpcomingMeeting from "./components/admin/UpcomingMeeting";
+import MeetingList from "./components/employee/MeetingList";
+import GenerateReport from "./components/employee/GenerateReport";
+import ReportByEmp from "./components/employee/ReportByEmp";
 
 function App() {
   // const initialOptions = {
@@ -96,6 +103,13 @@ function App() {
         <Route path="/emplogin" element={<EmpLogin/>}></Route>
         <Route path="/empdash" element={<EmpDash/>}></Route>
         <Route path="/makereport" element={<MakeReport/>}></Route>
+        <Route path="/regsemp" element={<RegsEmp/>}></Route>
+        <Route path="/empdetails" element={<GetEmp/>}></Route>
+        <Route path="/meetings" element={<FutureMeeting/>}></Route>
+        <Route path="/upcomingmeetingsbyadmin" element={<UpcomingMeeting/>} ></Route>
+        <Route path="/upcomingmeetings" element={<MeetingList/>}></Route>
+        <Route path="/reports" element={<GenerateReport/>}></Route>
+        <Route path="/reportsbyemp" element={<ReportByEmp/>} ></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 

@@ -7,21 +7,24 @@ function MakeReport() {
     // useEffect(()=>{
     //     handleReport();
     // },[])
+    
     const [formData, setFormData] = useState({
         employee_id: "",
         date: "",
         organization_name: "",
         organization_mobile_no: "",
-        person_met: "",
+        client_met: "", 
         purpose: "",
-        person_persnal_no: "",
+        person_personal_number: "",
         address: "",
         remarks: ""
       });
       const [responseMessage, setResponseMessage] = useState("");
+
+      
     
       const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target; 
         setFormData({
           ...formData,
           [name]: value,
@@ -39,6 +42,7 @@ function MakeReport() {
               headers: {
                 "Content-Type": "application/json",
               },
+              withCredentials: true
             }
           );
     
@@ -174,7 +178,7 @@ function MakeReport() {
         </div>
       </main> */}
       <main className="w-full flex items-start justify-center h-auto">
-      <div className="bg-white p-8 rounded shadow-md w-full h-auto max-w-2xl">
+      <div className="bg-white p-8 rounded shadow-md w-full h-auto max-w-5xl">
         <h2 className="text-2xl font-bold mb-6">Log Today's Interaction</h2>
         <form id="interactionForm" onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -235,15 +239,15 @@ function MakeReport() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="person_met" className="block text-gray-700">
-              Person Met:
+            <label htmlFor="client_met" className="block text-gray-700">
+              Client Met:
             </label>
             <input
               type="text"
-              id="person_met"
-              name="person_met"
+              id="client_met"
+              name="client_met"
               className="w-full px-3 py-2 border rounded"
-              value={formData.person_met}
+              value={formData.client_met}
               onChange={handleInputChange}
               required
             />
@@ -271,10 +275,10 @@ function MakeReport() {
             </label>
             <input
               type="text"
-              id="person_persnal_no"
-              name="person_persnal_no"
+              id="person_personal_number"
+              name="person_personal_number"
               className="w-full px-3 py-2 border rounded"
-              value={formData.person_persnal_no}
+              value={formData.person_personal_number}
               onChange={handleInputChange}
               required
             />

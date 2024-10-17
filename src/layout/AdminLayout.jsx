@@ -99,6 +99,33 @@ function AdminLayout({ children }) {
                Register Employee
               </Link>
             </li>
+            <li className="mb-2">
+              <Link
+                to="/empdetails"
+                className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
+              >
+                <FaCogs className="mr-2" />
+               Employee Details
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link
+                to="/upcomingmeetingsbyadmin"
+                className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
+              >
+                <FaCogs className="mr-2" />
+               Upcoming Meetings
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link
+                to="/reports"
+                className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
+              >
+                <FaCogs className="mr-2" />
+               Reports
+              </Link>
+            </li>
             <li className="mt-auto">
               <button onClick={handleLogout} className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded">
                 <FaSignOutAlt className="mr-2" />
