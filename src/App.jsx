@@ -50,6 +50,12 @@ import UpcomingMeeting from "./components/admin/UpcomingMeeting";
 import MeetingList from "./components/employee/MeetingList";
 import GenerateReport from "./components/employee/GenerateReport";
 import ReportByEmp from "./components/employee/ReportByEmp";
+import SeeLocation from "./components/employee/SeeLocation";
+import ToggleLocation from "./components/employee/ToggleLocation";
+import EmpLocations from "./components/admin/EmpLocations";
+
+import EmpMap from "./components/admin/Map";
+import EmpProfile from "./components/employee/EmpProfile";
 
 function App() {
   // const initialOptions = {
@@ -110,6 +116,11 @@ function App() {
         <Route path="/upcomingmeetings" element={<MeetingList/>}></Route>
         <Route path="/reports" element={<GenerateReport/>}></Route>
         <Route path="/reportsbyemp" element={<ReportByEmp/>} ></Route>
+        <Route path="/locations" element={<SeeLocation/>}></Route>
+        <Route path="/sharelocation" element={<ToggleLocation/>}></Route>
+        <Route path="/getemplocations" element={<EmpLocations/>}></Route>
+        <Route path="/maponemp" element={<EmpMap/>}></Route>
+        <Route path="/empprofile" element={<EmpProfile/>}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 

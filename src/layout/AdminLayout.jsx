@@ -126,6 +126,15 @@ function AdminLayout({ children }) {
                Reports
               </Link>
             </li>
+            <li className="mb-2">
+              <Link
+                to="/getemplocations"
+                className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
+              >
+                <FaCogs className="mr-2" />
+               Show Emp Locations
+              </Link>
+            </li>
             <li className="mt-auto">
               <button onClick={handleLogout} className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded">
                 <FaSignOutAlt className="mr-2" />

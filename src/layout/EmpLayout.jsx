@@ -18,7 +18,7 @@ function EmpLayout({children}) {
       if (res.data.status === 'success') {
           sessionStorage.removeItem("loggedIn");
           sessionStorage.removeItem("userData");
-          console.log('Logout Successful');
+          console.log('Logout Successful',res.data.message);
           navigate('/');
       } else {
           console.log('Logout failed:', res.data.message);
@@ -36,6 +36,12 @@ function EmpLayout({children}) {
           <h2 className="mt-2 text-xl font-semibold">Welcome, Employee</h2>
         </div>
         <nav className="flex flex-col w-full px-4 space-y-4">
+        <Link
+            to='/empdash'
+            className="flex items-center px-4 py-2 bg-blue-700 rounded-lg hover:bg-blue-800"
+          >
+            <FaRegCalendarAlt className="mr-3" />  Dashboard
+          </Link>
           <Link
             to='/meetings'
             className="flex items-center px-4 py-2 bg-blue-700 rounded-lg hover:bg-blue-800"
@@ -65,6 +71,12 @@ function EmpLayout({children}) {
             className="flex items-center px-4 py-2 bg-blue-700 rounded-lg hover:bg-blue-800"
           >
             <FaClipboardList className="mr-3" /> Make Reports
+          </Link>
+          <Link
+            to="/sharelocation"
+            className="flex items-center px-4 py-2 bg-blue-700 rounded-lg hover:bg-blue-800"
+          >
+            <FaClipboardList className="mr-3" /> Share Location
           </Link>
           <button
             onClick={handleLogout}
