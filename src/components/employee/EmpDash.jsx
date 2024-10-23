@@ -143,22 +143,22 @@ function EmpDash() {
           <Line data={chartData} />
         </div>
       </div> */}
-      <div className="flex-1 p-6">
-        <header className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
-          <div className="flex items-center space-x-4">
+      <div className="md:flex-1 flex-0 md:p-6 p-0">
+        <header className="flex  justify-between items-center mb-6">
+          <h1 className="md:text-3xl text-xl font-bold text-gray-800">Dashboard Overview</h1>
+          <div className="flex  items-center space-x-4">
             <input
               type="text"
               placeholder="Search..."
               className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+            <button className="px-4  py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
               New Task
             </button>
           </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6 md:mr-0 mr-[5rem]">
           <div className="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
             <h2 className="text-lg font-semibold text-gray-700">Meetings</h2>
             <p className="mt-2 text-3xl font-bold text-blue-600">12</p>
@@ -181,7 +181,7 @@ function EmpDash() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 md:mr-0 mr-[5rem]">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-lg font-semibold text-gray-700 mb-4">Meetings Overview</h2>
             <Line data={chartData} />

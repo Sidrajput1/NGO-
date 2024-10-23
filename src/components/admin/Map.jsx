@@ -140,23 +140,46 @@ useEffect(() => {
   }, [latitude, longitude]);
 
   return (
+    // <AdminLayout>
+    //    <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
+    //   <h2 style={{
+    //     position: 'absolute',
+    //     top: '10px',
+    //     left: '10px',
+    //     zIndex: 1000,
+    //     color: 'white',
+    //     background: 'rgba(0, 0, 0, 0.5)',
+    //     padding: '10px',
+    //     borderRadius: '8px'
+    //   }}>
+    //     Employee {employeeId}'s Live Location
+    //   </h2>
+    //   <div id="map" style={{ height: '100%', width: '100%' }}></div>
+    // </div>
+    // </AdminLayout>
     <AdminLayout>
-       <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
-      <h2 style={{
-        position: 'absolute',
-        top: '10px',
-        left: '10px',
-        zIndex: 1000,
-        color: 'white',
-        background: 'rgba(0, 0, 0, 0.5)',
-        padding: '10px',
-        borderRadius: '8px'
-      }}>
-        Employee {employeeId}'s Live Location
-      </h2>
-      <div id="map" style={{ height: '100%', width: '100%' }}></div>
-    </div>
-    </AdminLayout>
+  <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
+    <h2 style={{
+      position: 'absolute',
+      top: '10px',
+      left: '10px',
+      zIndex: 1000,
+      color: 'white',
+      background: 'rgba(0, 0, 0, 0.5)',
+      padding: '10px',
+      borderRadius: '8px',
+      fontSize: '1.5rem', // Default for larger screens
+      '@media (maxwidth: 600px)': { // For mobile screens
+        fontSize: '1rem',
+        padding: '8px',
+      },
+    }}>
+      Employee {employeeId}'s Live Location
+    </h2>
+    <div id="map" style={{ height: '100%', width: '100%' }}></div>
+  </div>
+</AdminLayout>
+
   );
 }
 

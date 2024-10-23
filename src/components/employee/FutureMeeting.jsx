@@ -20,7 +20,7 @@ function FutureMeeting() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
+    try { 
       const res = await axios.post(
         "https://prabisvg.com/phpbox/futuremeeting.php",
         formData,

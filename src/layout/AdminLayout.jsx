@@ -1,13 +1,19 @@
 import axios from "axios";
 import React from "react";
+import { BiSolidDonateHeart } from "react-icons/bi";
 import {
   FaBell,
+  FaCalendarAlt,
   FaCogs,
   FaHome,
   FaImage,
   FaSignOutAlt,
   FaTachometerAlt,
 } from "react-icons/fa";
+import { GrGroup } from "react-icons/gr";
+import { IoLocationSharp } from "react-icons/io5";
+import { RiGroup2Fill } from "react-icons/ri";
+import { TbRegistered, TbReportSearch } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
 function AdminLayout({ children }) {
     const navigate = useNavigate();
@@ -77,7 +83,7 @@ function AdminLayout({ children }) {
                 to="/adddonor"
                 className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
               >
-                <FaCogs className="mr-2" />
+                <BiSolidDonateHeart className="mr-2" />
                Add Donor
               </Link>
             </li>
@@ -86,7 +92,7 @@ function AdminLayout({ children }) {
                 to="/addsponser"
                 className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
               >
-                <FaCogs className="mr-2" />
+                <GrGroup className="mr-2" />
                Add Sponser
               </Link>
             </li>
@@ -95,7 +101,7 @@ function AdminLayout({ children }) {
                 to="/regsemp"
                 className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
               >
-                <FaCogs className="mr-2" />
+                <TbRegistered className="mr-2" />
                Register Employee
               </Link>
             </li>
@@ -104,7 +110,7 @@ function AdminLayout({ children }) {
                 to="/empdetails"
                 className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
               >
-                <FaCogs className="mr-2" />
+                <RiGroup2Fill className="mr-2" />
                Employee Details
               </Link>
             </li>
@@ -113,7 +119,7 @@ function AdminLayout({ children }) {
                 to="/upcomingmeetingsbyadmin"
                 className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
               >
-                <FaCogs className="mr-2" />
+                <FaCalendarAlt className="mr-2" />
                Upcoming Meetings
               </Link>
             </li>
@@ -122,7 +128,7 @@ function AdminLayout({ children }) {
                 to="/reports"
                 className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
               >
-                <FaCogs className="mr-2" />
+                <TbReportSearch className="mr-2" />
                Reports
               </Link>
             </li>
@@ -131,7 +137,7 @@ function AdminLayout({ children }) {
                 to="/getemplocations"
                 className="flex items-center p-2 text-gray-200 hover:bg-gray-700 rounded"
               >
-                <FaCogs className="mr-2" />
+                <IoLocationSharp className="mr-2" />
                Show Emp Locations
               </Link>
             </li>

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
@@ -65,11 +65,18 @@ function App() {
   //   intent: "capture",
   // };
 
+  const location = useLocation();
+  const navbarPaths = ['/','/about','/about/vision','/work/education','/work/health','/gallery','/vaasta','/vaasta/yojna','/contact','/about/work','/work/saas','/vaasta/member'
+    ,'/donate','/Internship','/events','/help','/story','/workstory'
+  ];
+
+  const shouldRender = navbarPaths.includes(location.pathname);
+
   return (
     <>
       <Header/>
       <RunningNotice/>
-      <Navbar />
+      {shouldRender && <Navbar />}
       <ScrollToTop />
 
       <Routes>

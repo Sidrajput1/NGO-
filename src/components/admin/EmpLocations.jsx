@@ -21,6 +21,12 @@ function EmpLocations() {
             }
           };
           fetchEmployees();
+
+          const locationInterval = setInterval(() => {
+            fetchEmployees();  // You can optimize this to only fetch employee location if necessary
+          }, 30000); // 30 seconds interval
+      
+          return () => clearInterval(locationInterval);
     },[]);
 
     const showLocationOnMap = async (employeeId) => {
@@ -78,12 +84,12 @@ function EmpLocations() {
       </table>
     </div> */}
     <div className="container mx-auto my-8">
-        <h1 className="text-3xl font-bold mb-6 text-center text-gray-700">Employee List</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-700">Employee Location</h1>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white shadow-md rounded-lg">
             <thead>
               <tr className="bg-gray-200 text-gray-600 text-left text-sm uppercase font-bold">
-                <th className="py-3 px-6">Employee Name</th>
+                <th className="py-3 px-6">Employee User id</th>
                 <th className="py-3 px-6">Location Sharing Status</th>
                 <th className="py-3 px-6">Action</th>
               </tr>

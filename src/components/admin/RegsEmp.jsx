@@ -128,11 +128,11 @@ const handleSubmit = async (e) => {
         </form>
       </div> */}
       <div className="container overflow-scroll mx-auto p-6">
-            <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Employee Registration</h1>
+            <h1 className="text-4xl font-bold mb-6 text-center text-blue-800">Employee Registration</h1>
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6 space-y-4">
                 {Object.keys(formData).filter(key => key !== 'profile_pic').map((key) => (
                     <div key={key}>
-                        <label htmlFor={key} className="block text-gray-700 text-sm font-bold mb-2">
+                        <label htmlFor={key} className="block text-blue-700 text-sm font-bold mb-2">
                             {key.replace('_', ' ').toUpperCase()}
                         </label>
                         {key === 'gender' ? (
@@ -161,7 +161,7 @@ const handleSubmit = async (e) => {
                     </div>
                 ))}
                 <div>
-                    <label htmlFor="profile_pic" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label htmlFor="profile_pic" className="block text-blue-700 text-sm font-bold mb-2">
                         PROFILE PICTURE
                     </label>
                     <input
@@ -180,7 +180,8 @@ const handleSubmit = async (e) => {
                 </button>
                 {responseMessage && (
                     <div className="text-center text-red-500 mt-4">
-                        {responseMessage}
+                        {responseMessage} <br /> 
+                        And Your Id is Your Phone number and Password is your Dob format DDMMYYYY
                     </div>
                 )}
             </form>

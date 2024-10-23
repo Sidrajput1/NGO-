@@ -156,18 +156,17 @@ function GenerateReport() {
   }
 
   return (
+   
     <AdminLayout>
-      <div className="p-6">
-        <h2 className="text-xl font-bold mb-4">Generate Employee Report</h2>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">
-            Employee
-          </label>
+      <div className="p-8 bg-white shadow-lg mx-auto w-full rounded-lg">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Generate Employee Report</h2>
+        
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700 mb-2">Employee</label>
           <select
             value={selectedEmployee}
             onChange={(e) => setSelectedEmployee(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 bg-white"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Employee</option>
             {employees.map((employee) => (
@@ -178,63 +177,47 @@ function GenerateReport() {
           </select>
         </div>
 
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">
-            Start Date
-          </label>
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">
-            End Date
-          </label>
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-2">End Date</label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
         </div>
 
         <button
           onClick={handleGenerateReport}
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          className="bg-blue-600 text-white px-4 py-2 rounded-md w-full hover:bg-blue-700 transition"
         >
           Generate Report
         </button>
 
-        {message && <p className="mt-4 text-red-500">{message}</p>}
+        {message && <p className="mt-4 text-red-500 text-center">{message}</p>}
 
-        {/* {reportLink && (
-          <div className="mt-4">
-            <p>Report generated:</p>
-            <a
-              href={reportLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500"
-            >
-              Download Report
-            </a>
-          </div>
-        )} */}
         {reportData && (
-        <div className="mt-4">
-          <p>Report generated:</p>
-          <button
-            onClick={handlePrintReport}
-            className="bg-green-500 text-white px-4 py-2 rounded-md"
-          >
-            Print/Download Report
-          </button>
-        </div>
-      )}
+          <div className="mt-4 text-center">
+            <p className="text-green-600">Report generated:</p>
+            <button
+              onClick={handlePrintReport}
+              className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 transition mt-2"
+            >
+              Print/Download Report
+            </button>
+          </div>
+        )}
       </div>
     </AdminLayout>
   );

@@ -28,7 +28,7 @@ function GetEmp() {
          <div className="overflow-x-auto">
       <table className="min-w-full bg-white border">
         <thead>
-          <tr>
+          <tr className='text-blue-700 font-semibold uppercase text-md'>
             <th className="py-2 px-4 border-b">Profile Picture</th>
             <th className="py-2 px-4 border-b">Name</th>
             <th className="py-2 px-4 border-b">DOB</th>
@@ -42,10 +42,11 @@ function GetEmp() {
         </thead>
         <tbody>
           {employees.map((employee) => (
-            <tr key={employee.id}>
+            <tr key={employee.id} className='hover:bg-slate-50'>
               <td className="py-2 px-4 border-b">
                 <img
-                  src={employee.profile_pic}
+                  //src={employee.profile_pic}
+                  src={`https://prabisvg.com/phpbox/${employee.profile_pic}`}
                   alt={employee.name}
                   className="w-12 h-12 rounded-full"
                 />
