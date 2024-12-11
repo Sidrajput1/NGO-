@@ -151,6 +151,14 @@ const Navbar = () => {
                     Where We Work
                   </Link>
                 </li>
+                <li id="submenu" className="border-b py-2 ">
+                  <Link
+                    to={"/ourdonor"}
+                    className="hover:text-[#007bff] md:text-white text-gray-600  md:text-[20px] text-[15px] font-bold block"
+                  >
+                    Our Donor
+                  </Link>
+                </li>
               </ul>
             </li>
             <li className="group max-lg:border-b max-lg:py-3 relative">
@@ -255,14 +263,14 @@ const Navbar = () => {
                     Field Stories
                   </Link>
                 </li>
-                <li id="submenu" className="border-b py-2 ">
+                {/* <li id="submenu" className="border-b py-2 ">
                   <Link
                     to={"/workstory"}
                     className="hover:text-[#007bff] md:text-white text-gray-600  md:text-[20px] text-[15px] font-bold block"
                   >
                     Work Stories
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li className='group max-lg:border-b max-lg:py-3 relative'>

@@ -87,7 +87,7 @@ function WorkSlider() {
     };
     return (
         <main>
-            <div className="flex justify-center items-center  md:h-[60vh] h-full ">
+            <div className="flex justify-center items-center bg-gray-100  md:h-[60vh] h-full ">
                 <div className="relative  md:h-[60vh] h-auto w-full md:max-w-7xl max-w-full overflow-hidden">
                     <div
                         className="flex w-full py-10 transition-transform  duration-700 ease-in-out"

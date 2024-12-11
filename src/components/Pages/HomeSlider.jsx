@@ -111,7 +111,7 @@ function HomeSlider() {
   }
   return (
     <div>
-      <FirstBanner/>
+      {/* <FirstBanner/> */}
       <HelpBtn />
       <Slider autoplay={3000} className="slider-wrapper">
         {content.map((item, index) => (

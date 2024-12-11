@@ -125,7 +125,7 @@ function ToggleLocation() {
             (error) => {
               reject(error);
             },
-            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
           );
         }
       });
@@ -159,6 +159,7 @@ function ToggleLocation() {
         (position) => {
           const { latitude, longitude } = position.coords;
           sendLocation({ latitude, longitude });
+          console.log(position.coords);
         },
         (error) => {
           console.error('Error watching position:', error);
@@ -166,7 +167,7 @@ function ToggleLocation() {
         {
           enableHighAccuracy: true, // GPS for better accuracy
           timeout: 30000,           // Max waiting time for a new position
-          maximumAge: 2000,            // No caching of positions
+          maximumAge: 0,            // No caching of positions
         }
       );
     };

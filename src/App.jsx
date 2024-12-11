@@ -56,6 +56,7 @@ import EmpLocations from "./components/admin/EmpLocations";
 
 import EmpMap from "./components/admin/Map";
 import EmpProfile from "./components/employee/EmpProfile";
+import OurDonor from "./components/sponsers/OurDonor";
 
 function App() {
   // const initialOptions = {
@@ -67,7 +68,7 @@ function App() {
 
   const location = useLocation();
   const navbarPaths = ['/','/about','/about/vision','/work/education','/work/health','/gallery','/vaasta','/vaasta/yojna','/contact','/about/work','/work/saas','/vaasta/member'
-    ,'/donate','/Internship','/events','/help','/story','/workstory'
+    ,'/donate','/Internship','/events','/help','/story','/workstory','/ourdonor'
   ];
 
   const shouldRender = navbarPaths.includes(location.pathname);
@@ -95,6 +96,8 @@ function App() {
         <Route path={"/work/saas"} element={<Shield />}></Route>
         <Route path={"/vaasta/member"} element={<Member />}></Route>
         <Route path={"/donate"} element={<Donate />}></Route>
+
+        <Route path="/ourdonor" element={<OurDonor/>}></Route>
         
         <Route path={"/Internship"} element={<Intern />}></Route>
         <Route path={"/events"} element={<Event />}></Route>

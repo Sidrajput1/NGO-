@@ -6,10 +6,15 @@ import help1 from '../../assets/pics/helps/help1.jpg'
 import help5 from '../../assets/pics/helps/help5.jpg'
 import help3 from '../../assets/pics/helps/help3.jpg'
 import help4 from '../../assets/pics/helps/help4.jpg'
+import help6 from '../../assets/pics/helps/help6.jpeg'
 import story1 from '../../assets/pics/story1.jpeg';
 import story2 from '../../assets/pics/story2.jpeg';
 import story3 from '../../assets/pics/story3.jpeg';
 import story8 from '../../assets/pics/story8.jpeg';
+import help7 from '../../assets/pics/helps/help7.jpeg';
+import help8 from '../../assets/pics/helps/help8.jpeg';
+import help9 from '../../assets/pics/helps/help9.jpeg';
+import help10 from '../../assets/pics/helps/help10.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 function ShortGallery() {
@@ -23,6 +28,10 @@ function ShortGallery() {
         { src: story2, alt: 'Image 6', text: '' },
         { src: story3, alt: 'Image 7', text: '' },
         { src: story8, alt: 'Image 8', text: '' },
+        { src: help6, alt: 'Image 9', text: '' },
+        { src: help7, alt: 'Image 10', text: '' },
+        { src: help8, alt: 'Image 11', text: '' },
+        { src: help10, alt: 'Image 12', text: '' },
     ];
     useEffect(() => {
         AOS.init({
@@ -30,7 +39,7 @@ function ShortGallery() {
         })
     }, [])
     return (
-        <div>
+        <div className='py-10 bg-gray-50'>
             <div
                 className='text-center m-auto mt-[-20px] py-4 font-bold font-serif text-xl'
                 data-aos="zoom-in"

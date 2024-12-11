@@ -45,7 +45,7 @@ function EmpLocations() {
           console.error('Error fetching location:', error);
         }
       };
-    
+  
   return (
     <AdminLayout>
         {/* <div>
@@ -83,7 +83,7 @@ function EmpLocations() {
         </tbody>
       </table>
     </div> */}
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto my-8 overflow-scroll">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-700">Employee Location</h1>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white shadow-md rounded-lg">

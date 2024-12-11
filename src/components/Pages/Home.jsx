@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import aboutgrid from '../../assets/pics/aboutgrid.png';
 
 import "react-slideshow-image/dist/styles.css";
 
@@ -37,13 +38,23 @@ function Home() {
           <HomeSlider />
         </div>
 
-        <div className="w-full min-h-[110vh]">
-          <div
+        <div id='donate-box' className='md:w-[90%] w-full px-[15px] z-50 flex md:flex-row flex-col md:justify-between justify-around items-center  mx-auto bg-gradient-to-r from-[#f40f68] to-[#f86e3d] h-36 absolute md:top-[98%]  md:left-16 left-0 '>
+                <div>
+                    <h2 className='md:text-4xl text-lg text-white font-light font-serif '>Please Help Us <span className='px-4 py-4 rounded-2xl border-[1px] hover:text-orange-500 hover:bg-white cursor-pointer  transition-all ease-in-out duration-300 animate-pulse '>Donate Now</span></h2>
+                </div>
+                <div>
+                    {/* <button className='px-4 py-4 rounded-3xl border-2 bg-transparent text-black hover:bg-black  hover:text-orange-500  transition-all ease-in-out duration-300 cursor-pointer '>Call Us</button> */}
+                    <a href="tel:9431442634" className='px-4 py-4 rounded-3xl border-2 bg-transparent text-black hover:bg-black  hover:text-orange-500  transition-all ease-in-out duration-300 cursor-pointer ' > Call Us at 9431442634 </a>
+                </div>
+            </div>
+
+        <div className="w-full min-h-[110vh] mt-8">
+          {/* <div
             className="m-auto w-full h-72 flex justify-center items-center gap-10 flex-col"
             data-aos="zoom-out-down"
             data-aos-duration="3000"
           >
-            {/* <h1 className='md:text-6xl  text-4xl font-bold text-center'>About the Prabisvg Samaj Kalyan</h1> */}
+          
             <h1
               className="header header--shadow md:text-[5rem] text-[2.5rem]"
               data-text="About the Prabisvg Samaj Kalyan"
@@ -55,80 +66,75 @@ function Home() {
               and a belief that everything is possible with the right amount of
               determination!
             </p>
+          </div> */}
+          <div className="bg-white py-20 px-6 md:px-20 lg:px-35">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
+              {/* Left Side - Images */}
+              <div className="relative w-full md:w-1/2 shadow-xl ">
+                <div className="w-full">
+                  <img
+                    src={aboutgrid} // Replace with your image link
+                    alt="Happy children"
+                    className="rounded-lg shadow-md h-full"
+                  />
+                </div>
+                {/* <div className="absolute top-50 left-10 border-4 border-white">
+                  <img
+                    src="https://via.placeholder.com/300" // Replace with your image link
+                    alt="Children studying"
+                    className="rounded-lg shadow-lg grayscale"
+                  />
+                </div> */}
+                {/* <div className="absolute top-2 right-2 bg-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-md text-center">
+                  4+
+                  <br />
+                  YEARS
+                </div> */}
+              </div>
+
+              {/* Right Side - Text */}
+              <div className="w-full md:w-1/2 bg-slate-100 py-8 shadow-xl">
+                <h2 className="text-3xl md:text-4xl font-bold px-2 text-gray-800 mb-4">
+                About the <span className="text-orange-600">  Prabisvg Samaj Kalyan </span>
+                </h2>
+                <p className="text-gray-600 text-lg leading-normal px-2 mb-2 py-4 text-justify">
+                Prabisvg Samaj Kalyan Evum Shikshan Sanstha is an organization that tries to empower the society. Our organization aims to ensure empowerment of women and girls through its extensive network, as well as transform their lives in terms of education, health, skills, employment and sustainable livelihoods by focusing on issues related to children and youth .
+                </p>
+                <p className="text-gray-600 text-lg leading-relaxed px-2  mb-4">
+                  Our commitment to integrity, compassion, and collaboration
+                  guides every initiative, ensuring that our efforts create
+                  lasting impact and promote inclusive growth. Together, we strive to build a brighter future for every individual, one where opportunity and dignity are accessible to all
+                </p>
+                <button onClick={()=>navigate('/about')} className=" text-red-500 px-6 py-3 border-2 mt-2 ml-2 border-white font-bold rounded-full  hover:text-orange-700 transition">
+                  READ MORE
+                </button>
+              </div>
+            </div>
           </div>
-          {/* <div
-                        className='flex md:flex-row flex-col justify-around items-center md:mt-0 mt-10 md:gap-0 gap-3'
-                        data-aos="fade-down"
-                        data-aos-easing="linear"
-                        data-aos-duration="1500"
-                    >
-                        <div
-                            className="bg-[orangered] shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-lg overflow-hidden mx-auto font-[sans-serif] ">
-                            <img src={gallery7} className="w-full" />
-                            <div className="px-4 py-6">
-                                <h3 className="text-white text-xl font-bold">Work During the Pandemic</h3>
-                                <p className="mt-4 text-xl text-black">
-                                    Charity brings to life again those who ,
-                                    are spiritually dead. ...
-                                </p>
-                                <button type="button" onClick={() => navigate('/about')}
-                                    className="px-6 py-2.5 mt-6 rounded text-white text-sm tracking-wider font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">View</button>
-                            </div>
-                        </div>
-                        <div
-                            data-aos="flip-left"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                            className="bg-[orangered] shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-lg overflow-hidden mx-auto font-[sans-serif] ">
-                            <img src={gallery6} className="w-full h-64" />
-                            <div className="px-4 py-6">
-                                <h3 className="text-white text-xl font-bold">Serving the Masses</h3>
-                                <p className="mt-4 text-xl text-black">Providing access to
-                                    healthcare, education, work, and
-                                    technological advancements to people
-                                    across the country.
-                                </p>
-                                <button type="button" onClick={() => navigate('/vaasta/yojna')}
-                                    className="px-6 py-2.5 mt-6 rounded text-white text-sm tracking-wider font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">View</button>
-                            </div>
-                        </div>
-                        <div
-                            className="bg-[orangered] shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] w-full max-w-sm rounded-lg overflow-hidden mx-auto font-[sans-serif] ">
-                            <img src={gallery8} className="w-full h-72" />
-                            <div className="px-4 py-6">
-                                <h3 className="text-white text-xl font-bold">Raise Awareness</h3>
-                                <p className="mt-4 text-xl text-black">We are constantly taking measures to raise
-                                    awareness and provide care for those in need.
-                                </p>
-                                <button type="button" onClick={() => navigate('/vaasta')}
-                                    className="px-6 py-2.5 mt-6 rounded text-white text-sm tracking-wider font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">View</button>
-                            </div>
-                        </div>
-                    </div> */}
+
           <WorkSlider />
         </div>
       </div>
-      <ShortGallery />
       
-      <div className="my-8">
-        
-        {/* <WeWork /> */}
-        <WorkFeature/>
-      </div>
-      <div className="my-8">
-        {" "}
-        {/* Add margin here */}
-        <HappyDonor />
-      </div>
 
+      <div className="my-8">
+        {/* <WeWork /> */}
+        <WorkFeature />
+      </div>
+      <ShortGallery />
       <ShortYojna />
+      {/* <div className="my-8">
+        
+        <HappyDonor />
+      </div> */}
+
+      
       {/* <YojnaCard /> */}
 
       {/* <Member /> */}
-      
 
       <Banner />
-      <Faq/>
+      <Faq />
 
       <LetsHelpFooter />
 
