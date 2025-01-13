@@ -8,7 +8,7 @@ function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
 
                     <div className="lg:col-span-2">
-                        <h2 className='text-3xl  text-sky-300 font-serif text-wrap font-bold pl-0 '>PRABISVG SAMAJ KALYAN <span className='text-orange-500'>EVUM SHIKSHAN SANSTHA</span></h2>
+                        <h2 className='text-3xl  text-orange-500 font-serif text-wrap font-bold pl-0 '>PRABISVG SAMAJ KALYAN <span className='text-sky-500'>EVUM SHIKSHAN SANSTHA</span></h2>
                         <p className="text-gray-300 text-lg"> we are trying to make a
                             difference wherever we can. However, we need your
                             support to further our cause.

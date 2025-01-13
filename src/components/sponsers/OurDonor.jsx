@@ -1,9 +1,10 @@
 import React from "react";
 import Intro from "../Intro";
+import HappyDonor from "./HappyDonor";
 
 function OurDonor() {
   return (
-    <div>
+    <div className="h-auto">
       <Intro
         heading="Our Donor"
         image={
@@ -25,10 +26,14 @@ function OurDonor() {
           Join us in making a difference.
         </p>
       </div>
-      <div className="min-h-[80vh]">
+      <div className="min-h-screen">
+         <div className="my-8">
+        
+        <HappyDonor />
+      </div>
 
       </div>
-      <div className="bg-orange-500 text-white py-12 text-center">
+      <div className="bg-orange-500 text-white py-12 mb-8 mt-44 text-center">
         <h2 className="text-3xl font-bold">Want to Join the Cause?</h2>
         <p className="mt-4 text-lg max-w-3xl mx-auto">
           Your support can make a significant difference. Become a donor or

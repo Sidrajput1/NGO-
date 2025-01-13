@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import EmpLayout from "../../layout/EmpLayout";
 
 function FutureMeeting() {
+
+  const employeeId = JSON.parse(sessionStorage.getItem("userData")).user_id;
   const [formData, setFormData] = useState({
-    employee_id: "3", // Replace with session employee id
+    employee_id: employeeId, // Replace with session employee id
     meeting_date: "",
     organization_name: "",
     organization_contact: "",
     purpose: "",
-    remarks: "",
   });
 
   const [message, setMessage] = useState("");
@@ -40,7 +41,7 @@ function FutureMeeting() {
         {/* <h2 className="text-xl font-bold mb-4">
           Notify Admin of Future Meeting
         </h2> */}
-        <h2 className="text-xl font-bold mb-4">Plan and Track Your Meeting</h2>
+        <h2 className="text-2xl text-blue-600 text-center font-bold mb-4">Plan and Track Your Meeting</h2>
         <p className="mb-4 text-gray-700">
           Fill in your basic meeting details to effectively plan your meeting,
           track your progress, and notify the office of future meetings.
@@ -49,8 +50,8 @@ function FutureMeeting() {
         {message && <p className="mb-4 text-green-500">{message}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="meeting_date" className="block text-gray-700">
-              Meeting Date:
+            <label htmlFor="meeting_date" className="block text-gray-900 font-bold">
+              *Meeting Date:
             </label>
             <input
               type="date"
@@ -63,8 +64,8 @@ function FutureMeeting() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="organization_name" className="block text-gray-700">
-              Organization Name:
+            <label htmlFor="organization_name" className="block text-gray-900 font-bold">
+              *Organization Name:
             </label>
             <input
               type="text"
@@ -79,9 +80,9 @@ function FutureMeeting() {
           <div className="mb-4">
             <label
               htmlFor="organization_contact"
-              className="block text-gray-700"
+              className="block text-gray-900 font-bold"
             >
-              Organization Contact:
+              *Organization Contact:
             </label>
             <input
               type="text"
@@ -94,8 +95,8 @@ function FutureMeeting() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="purpose" className="block text-gray-700">
-              Purpose of Meeting:
+            <label htmlFor="purpose" className="block text-gray-900 font-bold">
+              *Purpose of Meeting:
             </label>
             <input
               type="text"
@@ -107,22 +108,10 @@ function FutureMeeting() {
               required
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="remarks" className="block text-gray-700">
-              Remarks:
-            </label>
-            <textarea
-              id="remarks"
-              name="remarks"
-              className="w-full p-2 border rounded"
-              rows="3"
-              value={formData.remarks}
-              onChange={handleChange}
-            />
-          </div>
+         
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded"
+            className="w-full bg-blue-500 hover:bg-blue-700 text-white py-2 text-2xl rounded"
           >
             Submit
           </button>

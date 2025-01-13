@@ -134,7 +134,10 @@ function EmpMap() {
             },
           }}
         >
-          Employee {employeeId}'s Live Location
+          Employee {employeeId}'s Location
+          Longitude {longitude},
+          Latitude {latitude}
+
         </h2>
         <div id="map" style={{ height: "100%", width: "100%" }}></div>
       </div>

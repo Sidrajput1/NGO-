@@ -39,17 +39,17 @@ const Navbar = () => {
               />
             </a>
           </div>
-          <div className=" top-[2rem]">
+          <div className=" opacity-90 top-[2rem] bg-white/30 p-2 rounded-xl shadow-md hover:shadow-xl transition-shadow ">
             <strong
               id="prabisvg"
-              className="md:text-3xl text-sky-600 brightness-200 contrast-150  text-xl z-50  "
+              className="md:text-3xl text-orange-600 font-bold text-xl brightness-100 contrast-100  z-50  "
             >
               PRABISVG
             </strong>
             <br />
             <p
               id="kalyan"
-              className="md:px-1 px-1 ml-[-5px]  py-0 md:text-xl text-2xl text-orange-600 brightness-150  font-extrabold "
+              className="md:px-1 px-1 ml-[-5px]  py-0 md:text-xl text-2xl text-[#00B5FF] brightness-90  font-extrabold "
             >
               SAMAJ KALYAN
             </p>
@@ -257,7 +257,7 @@ const Navbar = () => {
 
                 <li id="submenu" className="border-b py-2 ">
                   <Link
-                    to={"/story"}
+                    to={"/workstory"}
                     className="hover:text-[#007bff] md:text-white text-gray-600  md:text-[20px] text-[15px] font-bold block"
                   >
                     Field Stories

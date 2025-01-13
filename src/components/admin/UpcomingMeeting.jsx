@@ -4,14 +4,14 @@ import AdminLayout from "../../layout/AdminLayout";
 
 function UpcomingMeeting() {
   const [meetings, setMeetings] = useState([]);
-  const [statusFilter, setStatusFilter] = useState("");
+  // const [statusFilter, setStatusFilter] = useState("");
   const [loading,setLoading] = useState('');
 
-  const fetchMeetings = async (status = null) => {
+  const fetchMeetings = async () => {
     try {
-      const query = status ? `?status=${status}` : "";
+     // const query = status ? `?status=${status}` : "";
       const res = await axios.get(
-        `https://prabisvg.com/phpbox/adminfetch_futuremeetings.php${query}`
+        `https://prabisvg.com/phpbox/adminfetch_futuremeetings.php`
       );
       setMeetings(res.data.data);
       setLoading(false);
@@ -22,19 +22,19 @@ function UpcomingMeeting() {
   };
 
   useEffect(() => {
-    fetchMeetings(statusFilter);
-  }, [statusFilter]);
+    fetchMeetings();
+  }, []);
 
   if(loading){
     return <div>Loading...</div>
   }
   return (
     <AdminLayout>
-      <div className="bg-grya-100 p-8 shadow-md rounded-lg">
+      <div className="bg-grya-100 p-8 mx-auto shadow-md rounded-lg">
         <h2 className="text-center text-3xl font-bold mb-6 text-gray-800">Upcoming Meetings</h2>
 
         {/* Filter buttons */}
-        <div className="flex justify-center space-x-4 mb-6">
+        {/* <div className="flex justify-center space-x-4 mb-6">
           <button  onClick={() => setStatusFilter(null)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">All Meetings</button>
           <button onClick={() => setStatusFilter("approved")}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -51,19 +51,19 @@ function UpcomingMeeting() {
         >
             Pending Meetings
           </button>
-        </div>
+        </div> */}
 
         {/* Table for displaying meeting requests */}
         <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-md rounded-lg">
+        <table className="min-w-full bg-gray-100 shadow-md rounded-lg">
           <thead>
             <tr>
-              <th className="text-left py-2 px-4">Employee Name</th>
-              <th className="text-left py-2 px-4">Meeting Date</th>
-              <th className="text-left py-2 px-4">Organization Name</th>
-              <th className="text-left py-2 px-4">Organization Contact</th>
-              <th className="text-left py-2 px-4">Purpose</th>
-              <th className="text-left py-2 px-4">Status</th>
+              <th className="text-left text-blue-700 font-extrabold py-2 px-4">Employee Name</th>
+              <th className="text-left text-blue-700 font-extrabold py-2 px-4">Meeting Date</th>
+              <th className="text-left text-blue-700 font-extrabold py-2 px-4">Organization Name</th>
+              <th className="text-left text-blue-700 font-extrabold py-2 px-4">Organization Contact</th>
+              <th className="text-left text-blue-700 font-extrabold py-2 px-4">Purpose</th>
+              {/* <th className="text-left py-2 px-4">Status</th> */}
             </tr>
           </thead>
           <tbody>
@@ -74,7 +74,7 @@ function UpcomingMeeting() {
                 <td className="border px-4 py-2">{meeting.organization_name}</td>
                 <td className="border px-4 py-2">{meeting.organization_contact}</td>
                 <td className="border px-4 py-2">{meeting.purpose}</td>
-                <td
+                {/* <td
                   className={`border px-4 py-2 ${
                     meeting.status === "approved"
                       ? "text-green-600"
@@ -84,7 +84,7 @@ function UpcomingMeeting() {
                   }`}
                 >
                   {meeting.status}
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>

@@ -4,57 +4,92 @@ import handleReport from "./handlereport";
 import axios from "axios";
 
 function MakeReport() {
-    // useEffect(()=>{
-    //     handleReport();
-    // },[])
-    
-    const [formData, setFormData] = useState({
-        employee_id: "",
-        date: "",
-        organization_name: "",
-        organization_mobile_no: "",
-        client_met: "", 
-        purpose: "",
-        person_personal_number: "",
-        address: "",
-        remarks: ""
-      });
-      const [responseMessage, setResponseMessage] = useState("");
+  // useEffect(()=>{
+  //     handleReport();
+  // },[])
+  const employeeId = JSON.parse(sessionStorage.getItem("userData")).user_id;
 
-      
-    
-      const handleInputChange = (e) => {
-        const { name, value } = e.target; 
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
-      };
-    
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-    
-        try {
-          const res = await axios.post(
-            "https://prabisvg.com/phpbox/interactions.php", // Update with your API URL
-            formData,
-            {
-              headers: {
-                "Content-Type": "application/json",
-              },
-              withCredentials: true
-            }
-          );
-    
-          setResponseMessage(res.data.message);
-        } catch (error) {
-          console.error("Error submitting interaction log:", error);
-          setResponseMessage("There was an error logging your interaction.");
+  const [formData, setFormData] = useState({
+    employee_id: employeeId,
+    date: "",
+    organization_name: "",
+    organization_mobile_no: "",
+    client_met: "",
+    purpose: "",
+    person_personal_number: "",
+    address: "",
+    remarks: "",
+  });
+  const [responseMessage, setResponseMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const {
+      date,
+      organization_name,
+      organization_mobile_no,
+      client_met,
+      purpose,
+      address,
+      remarks,
+    } = formData;
+
+    if (
+      !date ||
+      !organization_name ||
+      !organization_mobile_no ||
+      !client_met ||
+      !purpose ||
+      !address ||
+      !remarks
+    ) {
+      setError("Please fill in all required fields");
+      return;
+    }
+    setError("");
+    try {
+      const res = await axios.post(
+        "https://prabisvg.com/phpbox/interactions.php", // Update with your API URL
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
         }
-      };
+      );
+      if (res.data.status === "success") {
+        setResponseMessage(res.data.message);
+        setFormData({
+          employee_id: employeeId,
+          date: "",
+          organization_name: "",
+          organization_mobile_no: "",
+          client_met: "",
+          purpose: "",
+          person_personal_number: "",
+          address: "",
+          remarks: "",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting interaction log:", error);
+      setResponseMessage("There was an error logging your interaction.");
+    }
+  };
   return (
     // <EmpLayout>
-      
+
     //   <main className="w-full flex items-start justify-center h-auto">
     //   <div className="bg-white p-8 rounded shadow-md w-full h-auto max-w-5xl">
     //     <h2 className="text-2xl font-bold mb-6">Log Today's Interaction</h2>
@@ -206,10 +241,22 @@ function MakeReport() {
     <EmpLayout>
       <main className="w-full flex items-center justify-center h-auto">
         <div className="bg-gray-100 p-10 rounded-lg shadow-lg w-full max-w-8xl">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Log Today's Interaction</h2>
-          <form id="interactionForm" onSubmit={handleSubmit} className="space-y-6">
+          <h2 className="text-3xl font-bold mb-8 text-center text-blue-800">
+            Log Today's Interaction
+          </h2>
+          <form
+            id="interactionForm"
+            onSubmit={handleSubmit}
+            noValidate
+            className="space-y-6"
+          >
             <div>
-              <label htmlFor="employee_id" className="block text-gray-700 font-medium">Emp Id:</label>
+              <label
+                htmlFor="employee_id"
+                className="block text-gray-900 font-bold"
+              >
+                Emp Id:
+              </label>
               <input
                 type="number"
                 id="employee_id"
@@ -221,7 +268,9 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="date" className="block text-gray-700 font-medium">Date:</label>
+              <label htmlFor="date" className="block text-gray-900 font-bold">
+                *Date:
+              </label>
               <input
                 type="date"
                 id="date"
@@ -233,7 +282,12 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="organization_name" className="block text-gray-700 font-medium">Organization Name:</label>
+              <label
+                htmlFor="organization_name"
+                className="block text-gray-900 font-bold"
+              >
+                *Organization Name:
+              </label>
               <input
                 type="text"
                 id="organization_name"
@@ -244,7 +298,12 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="organization_mobile_no" className="block text-gray-700 font-medium">Organization Mobile No:</label>
+              <label
+                htmlFor="organization_mobile_no"
+                className="block text-gray-900 font-bold"
+              >
+                *Organization Mobile No:
+              </label>
               <input
                 type="text"
                 id="organization_mobile_no"
@@ -255,7 +314,12 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="client_met" className="block text-gray-700 font-medium">Client Met:</label>
+              <label
+                htmlFor="client_met"
+                className="block text-gray-900 font-bold"
+              >
+                *Client Met:
+              </label>
               <input
                 type="text"
                 id="client_met"
@@ -267,7 +331,12 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="purpose" className="block text-gray-700 font-medium">Purpose of Meeting:</label>
+              <label
+                htmlFor="purpose"
+                className="block text-gray-900 font-bold"
+              >
+                *Purpose of Meeting:
+              </label>
               <input
                 type="text"
                 id="purpose"
@@ -279,7 +348,12 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="person_personal_number" className="block text-gray-700 font-medium">Person Personal No:</label>
+              <label
+                htmlFor="person_personal_number"
+                className="block text-gray-900 font-bold"
+              >
+                Person Personal No:
+              </label>
               <input
                 type="text"
                 id="person_personal_number"
@@ -291,7 +365,12 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="address" className="block text-gray-700 font-medium">Address:</label>
+              <label
+                htmlFor="address"
+                className="block text-gray-900 font-bold"
+              >
+                *Address:
+              </label>
               <input
                 type="text"
                 id="address"
@@ -303,7 +382,12 @@ function MakeReport() {
               />
             </div>
             <div>
-              <label htmlFor="remarks" className="block text-gray-700 font-medium">Remarks:</label>
+              <label
+                htmlFor="remarks"
+                className="block text-gray-900 font-bold"
+              >
+                *Remarks:
+              </label>
               <textarea
                 id="remarks"
                 name="remarks"
@@ -320,8 +404,12 @@ function MakeReport() {
               Submit
             </button>
           </form>
+          {error && <p className="text-red-500 mb-4">{error}</p>}
           {responseMessage && (
-            <div id="responseMessage" className="mt-6 text-green-600 text-center">
+            <div
+              id="responseMessage"
+              className="mt-6 text-green-600 text-center"
+            >
               {responseMessage}
             </div>
           )}

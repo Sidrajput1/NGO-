@@ -36,7 +36,7 @@ function EmpLocations() {
             // Show the location on the map
             const { latitude, longitude } = res.data.location;
             // Implement map rendering logic here...
-            navigate('/maponemp', { state: { latitude, longitude, employeeId } });
+            navigate('/maponemp', { state: { latitude: latitude, longitude:longitude, employeeId } });
             console.log(`Show location: (${latitude}, ${longitude}) on map`);
           } else {
             console.error('Failed to fetch location');

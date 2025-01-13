@@ -67,8 +67,8 @@ function App() {
   // };
 
   const location = useLocation();
-  const navbarPaths = ['/','/about','/about/vision','/work/education','/work/health','/gallery','/vaasta','/vaasta/yojna','/contact','/about/work','/work/saas','/vaasta/member'
-    ,'/donate','/Internship','/events','/help','/story','/workstory','/ourdonor'
+  const navbarPaths = ['/','/about','/about/vision','/work/education','/work/health','/work/livlihood','/gallery','/vaasta','/vaasta/yojna','/contact','/about/work','/work/saas','/vaasta/member'
+    ,'/donate','/Internship','/events','/help','/story','/workstory','/reliefcamp','/ourdonor'
   ];
 
   const shouldRender = navbarPaths.includes(location.pathname);

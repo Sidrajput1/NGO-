@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { CgProfile } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
 
 import "react-slideshow-image/dist/styles.css";
@@ -281,120 +282,168 @@ function HappyDonor() {
     //     </button>
     //   </div>
     // </div>
-    <div className="md:h-[110vh] h-auto">
-      <header className="text-center text-4xl uppercase tracking-wide font-bold py-6 mb-4 text-green-500 font-sans">
-        <span >Our</span> Happy Donor
-      </header>
-
-      {/* Photos/Donors Section */}
-      <div className="relative max-w-7xl mx-auto">
-        {/* Slider Container */}
-        <div className="flex overflow-hidden">
-          {/* Slider Inner Wrapper */}
-          <div
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
-          >
-            {photos.map((donor, index) => (
-              <div
-                key={donor.id}
-                className={`p-4 ${photos.length === 1 ? "w-full" : "w-1/3"}`} // Adjust width for single donor
-                style={{ flexShrink: 0 }}
-              >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden text-center hover:scale-105 transition-transform duration-300">
-                  {/* Donor Image */}
-                  <div className="w-32 h-32 mx-auto mt-4">
-                    <img
-                      src={`https://prabisvg.com/phpbox/${donor.image_url.replace(
-                        "./",
-                        ""
-                      )}`}
-                      alt={donor.name}
-                      className="w-full h-full object-cover rounded-full border-4 border-orange-400"
-                    />
-                  </div>
-
-                  {/* Donor Info */}
-                  <div className="p-4 bg-orange-100">
-                    <h2 className="text-xl font-semibold text-orange-600 mt-4">
-                      {donor.title}
-                    </h2>
-                    <p className="text-gray-700 mt-2">{donor.description}</p>
-                  </div>
+    <div className="md:h-[110vh] h-auto bg-gray-50 py-8">
+    <header className="text-center text-4xl uppercase tracking-wide font-extrabold py-6 mb-6 text-green-600 font-sans">
+      <span>Our</span> Happy Donor
+    </header>
+  
+    {/* Photos/Donors Section */}
+    <div className="relative max-w-7xl mx-auto  bg-white shadow-xl rounded-lg overflow-hidden">
+      {/* Slider Container */}
+      <div className="flex overflow-hidden">
+        {/* Slider Inner Wrapper */}
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
+        >
+          {photos.map((donor, index) => (
+            <div
+              key={donor.id}
+              className={`p-6 ${photos.length === 1 ? "w-full" : "w-1/3"}`}
+              style={{ flexShrink: 0 }}
+            >
+              <div className="bg-gradient-to-br from-green-200 via-white to-orange-100 rounded-xl shadow-lg overflow-hidden text-center hover:shadow-2xl hover:scale-105 transition-transform duration-300">
+                {/* Icon Instead of Image */}
+                <div className="w-24 h-24 mx-auto mt-4 flex items-center justify-center bg-orange-400 text-white rounded-full">
+                <CgProfile className="text-4xl" />
+                </div>
+  
+                {/* Donor Info */}
+                <div className="p-6 bg-white">
+                  <h2 className="text-2xl font-bold text-green-700 mt-4">
+                    {donor.title}
+                  </h2>
+                  <p className="text-gray-600 mt-2">{donor.description}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-
-        {/* Navigation Buttons */}
-        <button
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 hover:bg-orange-500 text-white p-3 rounded-full shadow-lg focus:outline-none transition-colors"
-          onClick={prevSlide}
-        >
-          Prev
-        </button>
-        <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 hover:bg-orange-500 text-white p-3 rounded-full shadow-lg focus:outline-none transition-colors"
-          onClick={nextSlide}
-        >
-          Next
-        </button>
       </div>
-
-      {/* Sponsors Section */}
-      <header className="text-center text-4xl uppercase tracking-wider font-bold py-6 mt-4 text-green-500 font-sans">
-        <span>Our</span> Sponsor Organisations
-      </header>
-
-      <div className="relative max-w-7xl mx-auto">
-        {/* Slider Container */}
-        <div className="flex overflow-hidden">
-          {/* Slider Inner Wrapper */}
-          <div
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
-          >
-            {sponser.map((donor) => (
-              <div
-                key={donor.id}
-                className={`p-4 ${sponser.length === 1 ? "w-full" : "w-1/3"}`} // Adjust width for single sponsor
-                style={{ flexShrink: 0 }}
-              >
-                <div className="rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src={`https://prabisvg.com/phpbox/${donor.image_url.replace(
-                      "./",
-                      ""
-                    )}`}
-                    alt={donor.title}
-                    className="w-full h-48 object-fill"
-                  />
-                  <div className="p-4 bg-orange-400 brightness-200 ">
-                    <h2 className="text-2xl font-semibold">{donor.title}</h2>
-                    <p className="text-black mt-2">{donor.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Navigation Buttons */}
-        <button
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none"
-          onClick={prevSlide2}
+  
+      {/* Navigation Buttons */}
+      <button
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg focus:outline-none transition-all"
+        onClick={prevSlide}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-6 h-6"
         >
-          Prev
-        </button>
-        <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none"
-          onClick={nextSlide2}
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <button
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg focus:outline-none transition-all"
+        onClick={nextSlide}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-6 h-6"
         >
-          Next
-        </button>
-      </div>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
     </div>
+  
+    {/* Sponsors Section */}
+    <header className="text-center text-2xl uppercase tracking-wide font-extrabold py-6 mt-10 text-green-600 font-sans">
+      <span>Name of the <span className="text-2xl font-extrabold text-green-800">Organization</span> where Our <span className="text-green-700 font-extrabold">donation camp</span> event was organized</span> 
+    </header>
+  
+    <div className="relative max-w-7xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
+      {/* Slider Container */}
+      <div className="flex overflow-hidden">
+        {/* Slider Inner Wrapper */}
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
+        >
+          {sponser.map((donor) => (
+            <div
+              key={donor.id}
+              className={`p-6  ${sponser.length === 1 ? "w-full" : "w-1/3"}`}
+              style={{ flexShrink: 0 }}
+            >
+              <div className="bg-gradient-to-br from-orange-200 to-yellow-200 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-transform duration-300">
+                <img
+                  src={`https://prabisvg.com/phpbox/${donor.image_url.replace(
+                    "./",
+                    ""
+                  )}`}
+                  alt={donor.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-orange-600">
+                    {donor.title}
+                  </h2>
+                  <p className="text-gray-900 mt-2">{donor.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+  
+      {/* Navigation Buttons */}
+      <button
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg focus:outline-none transition-all"
+        onClick={prevSlide2}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <button
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg focus:outline-none transition-all"
+        onClick={nextSlide2}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
   );
 }
 

@@ -11,83 +11,6 @@ function ToggleLocation() {
     //const locationIntervalRef = useRef(null);
     const watchIdRef = useRef(null);
 
-    // method - 1 using setInterval 
-    // const toggleLocationSharing = async(enabled) => {
-    //   try {
-    //       const res = await axios.post('https://prabisvg.com/phpbox/updatelocation.php',{
-    //         user_id: employeeId, // employee ID from session
-    //         location_enabled: enabled ? 1 : 0, // 1 for enabled, 0 for disabled
-    //       });
-    //       if(res.data.status === 'success'){
-    //         setLocationEnabled(enabled);
-    //         console.log('Location permission updated successfully');
-    //         if(enabled){
-    //           startSendingLiveLocation();
-    //         }else{
-    //           stopSendingLiveLocation();
-    //         }
-    //       }else{
-    //         console.log('Failed to update location permission:', res.data.message);
-    //       }
-          
-    //   } catch (error) {
-    //     console.error('Error updating location permission:', error);
-    //   }
-    // };
-    // const getLocation = () => {
-    //   return new Promise((resolve, reject) => {
-    //     if (!navigator.geolocation) {
-    //       reject('Geo Location is not supported by browser');
-    //     } else {
-    //       navigator.geolocation.getCurrentPosition(
-    //         (position) => {
-    //           resolve(position.coords);
-    //         },
-    //         (error) => {
-    //           reject(error);
-    //         },
-    //         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    //       );
-    //     }
-    //   });
-    // };
-  
-    // const sendLocation = async () => {
-    //   try {
-    //     const coords = await getLocation();
-    //     await axios.post('https://prabisvg.com/phpbox/savelocation.php', {
-    //       latitude: coords.latitude,
-    //       longitude: coords.longitude,
-    //       employee_id: employeeId,
-    //     });
-    //     console.log('Location sent:', coords);
-    //   } catch (error) {
-    //     console.error('Error fetching/sending location:', error);
-    //   }
-    // };
-  
-    // const startSendingLiveLocation = () => {
-    //   if (locationIntervalRef.current) return; // Prevent multiple intervals
-  
-    //   locationIntervalRef.current = setInterval(() => {
-    //     sendLocation();
-    //   }, 30000);  // 30 seconds interval
-    // };
-  
-    // const stopSendingLiveLocation = () => {
-    //   if (locationIntervalRef.current) {
-    //     clearInterval(locationIntervalRef.current);
-    //     locationIntervalRef.current = null;  // Clear the interval reference
-    //   }
-    // };
-  
-    // useEffect(() => {
-    //   // Cleanup on component unmount or when location is disabled
-    //   return () => stopSendingLiveLocation();
-    // }, []);
-
-    // method -2 using watchLocation();
-
     const toggleLocationSharing = async (enabled) => {
       try {
         const res = await axios.post('https://prabisvg.com/phpbox/updatelocation.php', {
@@ -100,7 +23,9 @@ function ToggleLocation() {
           console.log('Location permission updated successfully');
           
           if (enabled) {
-            startSendingLiveLocation(); // Start live location tracking
+            startSendingLiveLocation();
+            registerBackgroundSync();
+             
           } else {
             stopSendingLiveLocation(); // Stop live location tracking
           }
@@ -113,25 +38,38 @@ function ToggleLocation() {
     };
     
     // Get the employee's current location (used only once)
-    const getLocation = () => {
-      return new Promise((resolve, reject) => {
-        if (!navigator.geolocation) {
-          reject('Geo Location is not supported by browser');
-        } else {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              resolve(position.coords);
-            },
-            (error) => {
-              reject(error);
-            },
-            { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
-          );
-        }
-      });
-    };
+    // const getLocation = () => {
+    //   return new Promise((resolve, reject) => {
+    //     if (!navigator.geolocation) {
+    //       reject('Geo Location is not supported by browser');
+    //     } else {
+    //       navigator.geolocation.getCurrentPosition(
+    //         (position) => {
+    //           resolve(position.coords);
+    //         },
+    //         (error) => {
+    //           reject(error);
+    //         },
+    //         { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+    //       );
+    //     }
+    //   });
+    // };
     
     // Send the employee's current location to the server
+    // const sendLocation = async (coords) => {
+    //   try {
+    //     await axios.post('https://prabisvg.com/phpbox/savelocation.php', {
+    //       latitude: coords.latitude,
+    //       longitude: coords.longitude,
+    //       employee_id: employeeId,
+    //     });
+    //     console.log('Location sent:', coords);
+    //   } catch (error) {
+    //     console.error('Error sending location:', error);
+    //   }
+    // };
+
     const sendLocation = async (coords) => {
       try {
         await axios.post('https://prabisvg.com/phpbox/savelocation.php', {
@@ -180,6 +118,22 @@ function ToggleLocation() {
         console.log('Stopped live location tracking');
       }
     };
+
+
+    const registerBackgroundSync = () => {
+      if ('serviceWorker' in navigator && 'SyncManager' in window) {
+        navigator.serviceWorker.ready.then((registration) => {
+          registration.sync.register('location-sync').then(() => {
+            console.log('Background sync registered');
+          }).catch((error) => {
+            console.error('Error registering background sync:', error);
+          });
+        });
+      } else {
+        console.error('Background Sync not supported in this browser');
+      }
+    };
+  
     
     useEffect(() => {
       // Cleanup on component unmount or when location sharing is disabled

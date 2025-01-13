@@ -20,8 +20,8 @@ const content = [
     description: "EVUM SHIKSHAN SANSTHA",
     button: "Read More",
     image: agirl,
-    style: { color: "#09ebe3" },
-    descriptionStyle: { color: "orangered", fontWeight: "500" },
+    style: { color: "#FF873A" },
+    descriptionStyle: { color: "#00B5FF", fontWeight: "500" },
     mobileStyle: {
       fontSize: "30px",
       marginTop: "50px",
@@ -111,7 +111,7 @@ function HomeSlider() {
   }
   return (
     <div>
-      {/* <FirstBanner/> */}
+      <FirstBanner/>
       <HelpBtn />
       <Slider autoplay={3000} className="slider-wrapper">
         {content.map((item, index) => (
